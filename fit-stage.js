@@ -4,9 +4,9 @@
   if (window.customElements && customElements.get('fit-stage')) return;
 
   const GOWNS = [
-    { hem: 0.40, flareStart: 0.00, power: 1.15, train: 0.55, bow: false, lace: 0.9 },  // klasična princes
-    { hem: 0.26, flareStart: 0.62, power: 2.2, train: 0.34, bow: false, lace: 0.75 },  // elegantna riblja kost
-    { hem: 0.18, flareStart: 0.10, power: 1.0, train: 0.26, bow: true, lace: 0.15 }    // moderna prava linija
+    { hem: 0.40, flareStart: 0.00, power: 1.15, train: 0.55, bow: false, lace: 0.9, sleeve: 'puff' },  // klasična princes
+    { hem: 0.26, flareStart: 0.62, power: 2.2, train: 0.34, bow: false, lace: 0.75, sleeve: 'long' },  // elegantna riblja kost
+    { hem: 0.18, flareStart: 0.10, power: 1.0, train: 0.26, bow: true, lace: 0.15, sleeve: 'strap' }   // moderna prava linija
   ];
 
   const rad = cm => cm / (2 * Math.PI) / 100;
@@ -55,6 +55,8 @@
       renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
       renderer.shadowMap.enabled = true;
       renderer.shadowMap.type = T.PCFSoftShadowMap;
+      if (T.sRGBEncoding !== undefined) renderer.outputEncoding = T.sRGBEncoding;
+      if (T.ACESFilmicToneMapping !== undefined) { renderer.toneMapping = T.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.08; }
       this.appendChild(renderer.domElement);
       Object.assign(renderer.domElement.style, { display: 'block', width: '100%', height: '100%' });
 
@@ -77,6 +79,13 @@
       floor.rotation.x = -Math.PI / 2;
       floor.receiveShadow = true;
       scene.add(floor);
+
+      const backdrop = new T.Mesh(
+        new T.CylinderGeometry(5, 5, 7, 48, 1, true),
+        new T.MeshStandardMaterial({ color: 0x574a40, roughness: 1, side: T.BackSide })
+      );
+      backdrop.position.y = 2.4;
+      scene.add(backdrop);
 
       const turntable = new T.Group();
       scene.add(turntable);
@@ -101,7 +110,7 @@
       ring.position.y = podiumH;
       turntable.add(ring);
 
-      const skinMat = new T.MeshStandardMaterial({ color: 0xe4d7c4, roughness: 0.9 });
+      const skinMat = new T.MeshStandardMaterial({ color: 0xe9dcc9, roughness: 0.78, metalness: 0.02 });
       const metalMat = new T.MeshStandardMaterial({ color: 0xb08d57, roughness: 0.35, metalness: 0.8 });
 
       const body = new T.Group();
@@ -171,6 +180,79 @@
         geo.computeVertexNormals();
       };
 
+      // tapered segment between two points
+      const limb = (from, to, r1, r2, mat, seg) => {
+        const dir = new T.Vector3().subVectors(to, from);
+        const len = dir.length();
+        const geo = new T.CylinderGeometry(r2, r1, len, seg || 20, 1, false);
+        const m = new T.Mesh(geo, mat);
+        m.position.copy(from).add(to).multiplyScalar(0.5);
+        m.quaternion.setFromUnitVectors(new T.Vector3(0, 1, 0), dir.clone().normalize());
+        m.castShadow = true;
+        return m;
+      };
+
+      const buildArms = (bust, cfg, group) => {
+        const rb = rad(bust);
+        const shoulderR = rb * 1.06;
+        const armR = 0.036 + rb * 0.06;
+        [-1, 1].forEach(side => {
+          const sx = side * (shoulderR + armR * 0.35);
+          const shoulder = new T.Vector3(sx, 1.39, 0);
+          const elbow = new T.Vector3(side * (shoulderR + armR * 1.75), 1.05, 0.02);
+          const wrist = new T.Vector3(side * (shoulderR + armR * 1.55), 0.74, 0.10);
+
+          const cap = new T.Mesh(new T.SphereGeometry(armR * 1.25, 20, 16), skinMat);
+          cap.position.copy(shoulder);
+          cap.castShadow = true;
+          group.add(cap);
+          group.add(limb(shoulder, elbow, armR * 1.1, armR * 0.85, skinMat));
+          group.add(limb(elbow, wrist, armR * 0.85, armR * 0.62, skinMat));
+
+          const hand = new T.Mesh(new T.SphereGeometry(armR * 0.8, 18, 14), skinMat);
+          hand.scale.set(0.8, 1.5, 0.55);
+          hand.position.copy(wrist).add(new T.Vector3(0, -0.055, 0.012));
+          hand.castShadow = true;
+          group.add(hand);
+
+          if (cfg.sleeve === 'puff') {                     // off-shoulder puff
+            const puff = new T.Mesh(new T.SphereGeometry(armR * 2.5, 24, 18), gownMat);
+            puff.scale.set(1, 0.82, 1);
+            puff.position.set(side * (shoulderR + armR * 0.5), 1.29, 0);
+            puff.castShadow = true;
+            group.add(puff);
+            const band = limb(
+              new T.Vector3(side * (shoulderR + armR * 0.75), 1.19, 0.004),
+              new T.Vector3(side * (shoulderR + armR * 1.2), 1.10, 0.014),
+              armR * 1.35, armR * 1.2, gownMat, 24
+            );
+            group.add(band);
+          } else if (cfg.sleeve === 'long') {              // long lace sleeve
+            group.add(limb(
+              new T.Vector3(sx, 1.43, 0),
+              new T.Vector3(side * (shoulderR + armR * 1.75), 1.04, 0.02),
+              armR * 1.55, armR * 1.12, gownMat, 24
+            ));
+            group.add(limb(
+              new T.Vector3(side * (shoulderR + armR * 1.75), 1.05, 0.02),
+              new T.Vector3(side * (shoulderR + armR * 1.55), 0.72, 0.10),
+              armR * 1.12, armR * 0.9, gownMat, 24
+            ));
+          } else {                                          // thin straps
+            group.add(limb(
+              new T.Vector3(side * (rb * 0.55), 1.30, 0.055),
+              new T.Vector3(side * (rb * 0.72), 1.44, -0.02),
+              0.011, 0.011, gownMat, 10
+            ));
+            group.add(limb(
+              new T.Vector3(side * (rb * 0.72), 1.44, -0.02),
+              new T.Vector3(side * (rb * 0.6), 1.24, -0.07),
+              0.011, 0.011, gownMat, 10
+            ));
+          }
+        });
+      };
+
       const rebuild = () => {
         const bust = +(this.getAttribute('bust') || 90);
         const waist = +(this.getAttribute('waist') || 72);
@@ -215,8 +297,9 @@
         gownMesh.receiveShadow = true;
         body.add(gownMesh);
 
-        // back details — these make the rotation readable
+        // arms, sleeves and back details
         details = new T.Group();
+        buildArms(bust, cfg, details);
         const rw = rad(waist), rb = rad(bust);
         const buttonMat = new T.MeshStandardMaterial({ color: 0xf3ece0, roughness: 0.35 });
         for (let i = 0; i < 9; i++) {
