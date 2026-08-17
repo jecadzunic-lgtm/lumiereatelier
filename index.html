@@ -1,24 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="sr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lumière Atelier · Venčanice po meri, Beograd</title>
+<meta name="description" content="Lumière Atelier je svadbeni studio u Beogradu. Venčanice po meri, privatni termini i sopstvena radionica. Zakažite besplatan termin.">
+<meta name="theme-color" content="#2e2823">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lumière Atelier · Venčanice po meri, Beograd">
+<meta property="og:description" content="Venčanice po meri, krojene i dovršene u Beogradu od 2014. Privatni termini, sopstvena radionica.">
+<meta property="og:image" content="assets/hero-bride.png">
+<meta property="og:locale" content="sr_RS">
 <script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-<script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background: #faf6f0; color: #2e2823; font-family: Jost, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
+  [data-mobilemenu]:not([style]) { display: none; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: #faf6f0; color: #2e2823; font-family: Jost, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: clip; }
   a { color: #a5854f; text-decoration: none; }
   a:hover { color: #7d6335; }
+  img { max-width: 100%; display: block; }
   input, textarea, select, button { font: inherit; color: inherit; }
+  summary { list-style: none; cursor: pointer; }
+  summary::-webkit-details-marker { display: none; }
+  details[open] summary span[data-plus] { transform: rotate(45deg); }
   @keyframes lumFade { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
   @keyframes lumSway { 0%, 100% { transform: translateY(0) rotate(-.4deg); } 50% { transform: translateY(-10px) rotate(.4deg); } }
   @keyframes lumDrop { 0%, 100% { transform: translateY(0); opacity: .5; } 50% { transform: translateY(9px); opacity: 1; } }
@@ -30,28 +42,31 @@
 </style>
 </helmet>
 
-<div style="min-height: 100vh; overflow-x: hidden;">
+<div style="min-height: 100vh; overflow-x: clip;">
 
   <section id="top" style="position: relative; display: flex; flex-direction: column; overflow: hidden; background: #f7f2ea;">
     <header style="position: relative; z-index: 3;">
-      <div style="max-width: 1560px; margin: 0 auto; padding: clamp(18px, 2.4vw, 34px) clamp(20px, 4vw, 60px); display: flex; align-items: center; justify-content: space-between; gap: 24px;">
-        <a href="#top" style="display: flex; flex-direction: column; align-items: center; gap: 8px; color: #7d6335;">
-          <span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(30px, 3.4vw, 44px); line-height: .9; letter-spacing: .04em; color: #9c7c45;">LA</span>
-          <span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 2vw, 26px); letter-spacing: .22em; text-transform: uppercase; color: #8a6c3c;">Lumière</span>
-          <span style="font-size: 8px; letter-spacing: .52em; text-transform: uppercase; color: #a5854f;">Atelier</span>
+      <div style="max-width: 1560px; margin: 0 auto; padding: clamp(16px, 2.4vw, 34px) clamp(20px, 4vw, 60px); display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+        <a href="#top" style="display: flex; align-items: center; gap: 14px; color: #7d6335;">
+          <span style="display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; border: 1px solid rgba(165,133,79,.5); background: linear-gradient(150deg, #fffdf9, #f2e8d8); box-shadow: 0 6px 18px rgba(125,99,53,.14), inset 0 1px 0 #fff;">
+            <span style="position: relative; display: block; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: 30px; line-height: 1; letter-spacing: -.1em; color: #9c7c45;">L<span style="position: relative; left: -.06em; color: #b08d57;">A</span></span>
+          </span>
+          <span style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(19px, 1.9vw, 25px); line-height: 1; letter-spacing: .2em; text-transform: uppercase; color: #6f5730;">Lumière</span>
+            <span style="font-size: 8px; letter-spacing: .5em; text-transform: uppercase; color: #a5854f;">Atelier</span>
+          </span>
         </a>
 
-        <nav style="{{ navRowStyle }}">
-          <a href="#top" style="font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: #4a423a;" style-hover="color: #a5854f;">Početna</a>
-          <a href="#about" style="font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: #4a423a;" style-hover="color: #a5854f;">O nama</a>
-          <a href="#collection" style="font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: #4a423a;" style-hover="color: #a5854f;">Kolekcija</a>
-          <a href="#fit" style="font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: #4a423a;" style-hover="color: #a5854f;">Kroj i figura</a>
-          <a href="#services" style="font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: #4a423a;" style-hover="color: #a5854f;">Usluge</a>
-          <a href="#contact" style="font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: #4a423a;" style-hover="color: #a5854f;">Kontakt</a>
+        <nav data-navrow="1" style="{{ navRowStyle }}">
+          <a href="#collection" style="padding: 10px clamp(10px, 1vw, 18px); border-radius: 999px; border: 1px solid rgba(165,133,79,.32); background: #fffdf9; box-shadow: 0 3px 10px rgba(125,99,53,.10); font-size: clamp(11px, 1vw, 12px); letter-spacing: .14em; text-transform: uppercase; color: #5a5148; transition: all .3s ease;" style-hover="color: #6f5730; background: #f1e6d3; border-color: #c8ab77; box-shadow: 0 6px 16px rgba(125,99,53,.18); transform: translateY(-1px);">Kolekcija</a>
+          <a href="#about" style="padding: 10px clamp(10px, 1vw, 18px); border-radius: 999px; border: 1px solid rgba(165,133,79,.32); background: #fffdf9; box-shadow: 0 3px 10px rgba(125,99,53,.10); font-size: clamp(11px, 1vw, 12px); letter-spacing: .14em; text-transform: uppercase; color: #5a5148; transition: all .3s ease;" style-hover="color: #6f5730; background: #f1e6d3; border-color: #c8ab77; box-shadow: 0 6px 16px rgba(125,99,53,.18); transform: translateY(-1px);">O nama</a>
+          <a href="#services" style="padding: 10px clamp(10px, 1vw, 18px); border-radius: 999px; border: 1px solid rgba(165,133,79,.32); background: #fffdf9; box-shadow: 0 3px 10px rgba(125,99,53,.10); font-size: clamp(11px, 1vw, 12px); letter-spacing: .14em; text-transform: uppercase; color: #5a5148; transition: all .3s ease;" style-hover="color: #6f5730; background: #f1e6d3; border-color: #c8ab77; box-shadow: 0 6px 16px rgba(125,99,53,.18); transform: translateY(-1px);">Usluge</a>
+          <a href="#journal" style="padding: 10px clamp(10px, 1vw, 18px); border-radius: 999px; border: 1px solid rgba(165,133,79,.32); background: #fffdf9; box-shadow: 0 3px 10px rgba(125,99,53,.10); font-size: clamp(11px, 1vw, 12px); letter-spacing: .14em; text-transform: uppercase; color: #5a5148; transition: all .3s ease;" style-hover="color: #6f5730; background: #f1e6d3; border-color: #c8ab77; box-shadow: 0 6px 16px rgba(125,99,53,.18); transform: translateY(-1px);">Iskustva</a>
+          <a href="#contact" style="padding: 10px clamp(10px, 1vw, 18px); border-radius: 999px; border: 1px solid rgba(165,133,79,.32); background: #fffdf9; box-shadow: 0 3px 10px rgba(125,99,53,.10); font-size: clamp(11px, 1vw, 12px); letter-spacing: .14em; text-transform: uppercase; color: #5a5148; transition: all .3s ease;" style-hover="color: #6f5730; background: #f1e6d3; border-color: #c8ab77; box-shadow: 0 6px 16px rgba(125,99,53,.18); transform: translateY(-1px);">Kontakt</a>
         </nav>
 
         <div style="display: flex; align-items: center; gap: 12px;">
-          <a href="#contact" style="{{ ctaStyle }}" style-hover="background: #a5854f; color: #fffdf9; border-color: #a5854f;">Rezervišite termin</a>
+          <a href="#contact" style="{{ ctaStyle }}" style-hover="background: #a5854f; color: #fffdf9; border-color: #a5854f;">Zakažite termin</a>
           <button type="button" onClick="{{ toggleMenu }}" aria-label="Meni" style="{{ burgerStyle }}">
             <span style="display: block; width: 20px; height: 1px; background: #2e2823;"></span>
             <span style="display: block; width: 20px; height: 1px; background: #2e2823;"></span>
@@ -60,172 +75,182 @@
         </div>
       </div>
 
-      <div style="{{ mobileMenuStyle }}">
-        <a href="#about" onClick="{{ closeMenu }}" style="font-size: 13px; letter-spacing: .22em; text-transform: uppercase; color: #4a423a; padding: 7px 0;">O nama</a>
-        <a href="#collection" onClick="{{ closeMenu }}" style="font-size: 13px; letter-spacing: .22em; text-transform: uppercase; color: #4a423a; padding: 7px 0;">Kolekcija</a>
-        <a href="#fit" onClick="{{ closeMenu }}" style="font-size: 13px; letter-spacing: .22em; text-transform: uppercase; color: #4a423a; padding: 7px 0;">Kroj i figura</a>
-        <a href="#services" onClick="{{ closeMenu }}" style="font-size: 13px; letter-spacing: .22em; text-transform: uppercase; color: #4a423a; padding: 7px 0;">Usluge</a>
-        <a href="#journal" onClick="{{ closeMenu }}" style="font-size: 13px; letter-spacing: .22em; text-transform: uppercase; color: #4a423a; padding: 7px 0;">Iskustva</a>
-        <a href="#contact" onClick="{{ closeMenu }}" style="font-size: 13px; letter-spacing: .22em; text-transform: uppercase; color: #4a423a; padding: 7px 0;">Kontakt</a>
+      <div data-mobilemenu="1" style="{{ mobileMenuStyle }}">
+        <a href="#collection" onClick="{{ closeMenu }}" style="font-size: 14px; letter-spacing: .22em; text-transform: uppercase; color: #4a423a; padding: 12px 0;">Kolekcija</a>
+        <a href="#about" onClick="{{ closeMenu }}" style="font-size: 14px; letter-spacing: .22em; text-transform: uppercase; color: #4a423a; padding: 12px 0;">O nama</a>
+        <a href="#services" onClick="{{ closeMenu }}" style="font-size: 14px; letter-spacing: .22em; text-transform: uppercase; color: #4a423a; padding: 12px 0;">Usluge</a>
+        <a href="#journal" onClick="{{ closeMenu }}" style="font-size: 14px; letter-spacing: .22em; text-transform: uppercase; color: #4a423a; padding: 12px 0;">Iskustva</a>
+        <a href="#contact" onClick="{{ closeMenu }}" style="margin-top: 10px; padding: 15px 24px; border-radius: 999px; background: #a5854f; color: #fffdf9; font-size: 12px; letter-spacing: .24em; text-transform: uppercase; text-align: center;">Zakažite termin</a>
       </div>
     </header>
 
-    <div style="position: relative; z-index: 2; flex: 1; max-width: 1560px; width: 100%; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); align-items: stretch;">
-      
-      <div style="display: flex; align-items: center; padding: clamp(28px, 5vw, 72px) clamp(20px, 4vw, 60px) clamp(64px, 8vw, 104px); width: 590px; height: 550px">
-        
-      <div style="max-width: 30ch; display: flex; flex-direction: column; gap: clamp(18px, 2vw, 26px); animation: lumFade 1.2s ease .15s both; width: 339px; height: 398px; align-items: flex-start; flex-wrap: nowrap; position: static">
-          
-          <h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(44px, 5.6vw, 84px); line-height: 1.0; letter-spacing: -.015em; color: #2b2520; position: static; text-align: left; height: 160px; align-self: auto; width: 463px">Stvorene za<br><em style="font-style: italic; width: 341px; height: 73px">vaš najlepši dan</em></h1><span style="width: 58px; height: 1px; background: #c8ab77;"></span>
-          
-          <p style="margin: 0; max-width: 32ch; font-size: clamp(15px, 1.2vw, 17px); font-weight: 300; line-height: 1.7; color: #4f473e; text-wrap: pretty;"><b style="">Venčanice po meri, sašivene s ljubavlju za nezaboravne trenutke.</b></p><a href="#collection" style="align-self: flex-start; margin-top: 6px; padding: 17px 32px; background: #a5854f; color: #fffdf9; font-size: 11px; letter-spacing: .26em; text-transform: uppercase;" style-hover="background: #8e703d;">Otkrijte kolekciju</a>
-        </div></div><div style="position: relative; min-height: clamp(340px, 46vw, 660px); overflow: hidden;">
-        <div style="position: absolute; inset: 0px; background-image: url(&quot;assets/hero-bride.png&quot;); background-size: cover; background-position: 50% 22%; animation: 2.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0s 1 normal both running lumZoom; width: 763px; height: 594px;"><div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(247,242,234,.9) 0%, rgba(247,242,234,0) 22%); left: -18px; top: -3px; width: 813px; height: 554px"></div></div>
-        
+    <div style="position: relative; z-index: 2; flex: 1; max-width: 1560px; width: 100%; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: stretch;">
+      <div style="display: flex; align-items: center; padding: clamp(28px, 5vw, 72px) clamp(20px, 4vw, 60px) clamp(56px, 8vw, 104px);">
+        <div style="display: flex; flex-direction: column; align-items: flex-start; gap: clamp(18px, 2vw, 26px); animation: lumFade 1.2s ease .15s both;">
+          <span style="font-size: 12px; font-weight: 500; letter-spacing: .32em; text-transform: uppercase; color: #8a6c26;">Bridal atelier · Beograd</span>
+          <h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(42px, 5.4vw, 82px); line-height: 1.04; letter-spacing: -.015em; color: #2b2520;">Stvorene za<br><em style="font-style: italic;">vaš najlepši dan</em></h1>
+          <span style="width: 58px; height: 1px; background: #c8ab77;"></span>
+          <p style="margin: 0; max-width: 34ch; font-size: clamp(16px, 1.2vw, 18px); font-weight: 400; line-height: 1.75; color: #4f473e; text-wrap: pretty;">Venčanice po meri, nastale u našem beogradskom ateljeu, za mlade koje žele da njihova haljina bude jedinstvena kao i njihova priča.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px;">
+            <a href="#collection" style="padding: 17px 32px; border-radius: 999px; background: #a5854f; color: #fffdf9; font-size: 11px; letter-spacing: .26em; text-transform: uppercase; box-shadow: 0 10px 26px rgba(125,99,53,.28); transition: all .35s ease;" style-hover="background: #8e703d; box-shadow: 0 14px 32px rgba(125,99,53,.36); transform: translateY(-2px);">Pogledajte kolekciju</a>
+            <a href="#contact" style="padding: 17px 32px; border-radius: 999px; border: 1px solid #c8ab77; color: #7d6335; font-size: 11px; letter-spacing: .26em; text-transform: uppercase; box-shadow: 0 6px 18px rgba(125,99,53,.13); transition: all .35s ease;" style-hover="background: #efe5d6; transform: translateY(-2px);">Zakažite termin</a>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 10px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #6b6157;">
+            <span>Šivenje po meri</span>
+            <span>Privatni termini</span>
+            <span>Sopstvena radionica</span>
+          </div>
+        </div>
+      </div>
+      <div style="position: relative; min-height: clamp(360px, 46vw, 660px); overflow: hidden;">
+        <div style="position: absolute; inset: 0; background-image: url('assets/hero-bride.png'); background-size: cover; background-position: 50% 22%; animation: lumZoom 2.6s cubic-bezier(.2,.7,.2,1) both;"></div>
+        <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(247,242,234,.92) 0%, rgba(247,242,234,0) 26%);"></div>
       </div>
     </div>
 
-    <a href="#collection" aria-label="Nastavite dalje" style="position: absolute; left: 50%; bottom: 28px; z-index: 3; transform: translateX(-50%); animation: lumDrop 2.4s ease-in-out infinite;">
-      <span style="display: block; width: 26px; height: 26px; border-right: 1px solid #9b8a70; border-bottom: 1px solid #9b8a70; transform: rotate(45deg);"></span>
+    <a href="#collection" aria-label="Nastavite dalje" style="position: absolute; left: 50%; bottom: 22px; z-index: 3; transform: translateX(-50%); animation: lumDrop 2.4s ease-in-out infinite;">
+      <span style="display: block; width: 24px; height: 24px; border-right: 1px solid #9b8a70; border-bottom: 1px solid #9b8a70; transform: rotate(45deg);"></span>
     </a>
   </section>
 
-  
+  <section id="collection" data-reveal="1" style="max-width: 1560px; margin: 0 auto; padding: clamp(56px, 8vw, 118px) clamp(22px, 4vw, 64px); display: flex; flex-direction: column; gap: clamp(34px, 4vw, 56px);">
+    <div style="display: flex; flex-direction: column; gap: 18px; max-width: 44ch;">
+      <span style="font-size: 12px; font-weight: 500; letter-spacing: .32em; text-transform: uppercase; color: #8a6c26;">Naša kolekcija</span>
+      <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(32px, 4.2vw, 56px); line-height: 1.08; color: #2b2520;">Vanvremenski krojevi,<br><em>stvoreni za vas</em></h2>
+      <p style="margin: 0; font-size: 17px; line-height: 1.8; color: #46403a; text-wrap: pretty;">Tri kućne linije kroja, svaka šivena po meri u našem ateljeu. Kliknite na model za veći prikaz.</p>
+    </div>
 
-  <section id="collection" data-reveal="1" style="max-width: 1720px; margin: 0 auto; padding: clamp(28px, 3.4vw, 48px) clamp(22px, 4vw, 64px) clamp(56px, 8vw, 112px); background: #faf6f0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(32px, 5vw, 72px); align-items: start;">
-    
-
-    <div style="display: flex; flex-direction: column; gap: 22px;">
-      
-      <span style="font-size: 11px; letter-spacing: .4em; text-transform: uppercase; color: #a5854f;">Naša kolekcija</span><h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(32px, 4.2vw, 54px); line-height: 1.1;">Vanvremenski krojevi,<br><em>stvoreni za vas</em></h2>
-      <p style="margin: 0; max-width: 36ch; font-size: 16px; font-weight: 300; line-height: 1.75; color: #5a5147;">Svaka haljina je spoj elegancije, kvaliteta i pažnje posvećene detalju. Tri kućne linije kroja, svaka šivena po meri u našem ateljeu.</p>
-      <a href="#fit" style="align-self: flex-start; padding: 15px 28px; border: 1px solid #c8ab77; color: #7d6335; font-size: 11px; letter-spacing: .26em; text-transform: uppercase;" style-hover="background: #efe5d6;">Pogledajte kolekciju</a>
-    </div><div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 1.6vw, 22px);">
-      <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px; transition: transform .5s cubic-bezier(.2,.7,.2,1);" style-hover="transform: translateY(-8px);">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(18px, 2.4vw, 34px);">
+      <figure onClick="{{ openSeraphine }}" style="margin: 0; display: flex; flex-direction: column; gap: 16px; cursor: pointer; transition: transform .55s cubic-bezier(.2,.7,.2,1);" style-hover="transform: translateY(-8px);">
         <div style="position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: #ece2d3;">
           <div style="position: absolute; inset: 0; background-image: url('assets/gown-klasicna.png'); background-size: cover; background-position: 50% 42%;"></div>
         </div>
-        <figcaption style="display: flex; flex-direction: column; gap: 6px; text-align: center;">
-          <span style="font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: #2e2823;">Klasična</span>
-          <span style="font-size: 12px; font-weight: 300; color: #8a8075;">Princes kroj · duga šlep</span>
+        <figcaption style="display: flex; flex-direction: column; gap: 7px;">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 27px; color: #2b2520;">Séraphine</span>
+          <span style="font-size: 15px; line-height: 1.6; color: #5c544b;">Princes silueta · svila i francuska čipka</span>
         </figcaption>
       </figure>
-      <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px; transition: transform .5s cubic-bezier(.2,.7,.2,1);" style-hover="transform: translateY(-8px);">
+      <figure onClick="{{ openElodie }}" style="margin: 0; display: flex; flex-direction: column; gap: 16px; cursor: pointer; transition: transform .55s cubic-bezier(.2,.7,.2,1);" style-hover="transform: translateY(-8px);">
         <div style="position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: #ece2d3;">
           <div style="position: absolute; inset: 0; background-image: url('assets/gown-elegantna.png'); background-size: cover; background-position: 50% 40%;"></div>
         </div>
-        <figcaption style="display: flex; flex-direction: column; gap: 6px; text-align: center;">
-          <span style="font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: #2e2823;">Elegantna</span>
-          <span style="font-size: 12px; font-weight: 300; color: #8a8075;">Riblja kost · čipkani rukavi</span>
+        <figcaption style="display: flex; flex-direction: column; gap: 7px;">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 27px; color: #2b2520;">Élodie</span>
+          <span style="font-size: 15px; line-height: 1.6; color: #5c544b;">Riblja silueta · ručno izrađeni čipkani detalji</span>
         </figcaption>
       </figure>
-      <figure style="grid-column: 1 / -1; justify-self: center; width: min(100%, 58%); margin: 0; display: flex; flex-direction: column; gap: 14px; transition: transform .5s cubic-bezier(.2,.7,.2,1);" style-hover="transform: translateY(-8px);">
+      <figure onClick="{{ openMargaux }}" style="margin: 0; display: flex; flex-direction: column; gap: 16px; cursor: pointer; transition: transform .55s cubic-bezier(.2,.7,.2,1);" style-hover="transform: translateY(-8px);">
         <div style="position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: #ece2d3;">
           <div style="position: absolute; inset: 0; background-image: url('assets/gown-moderna.png'); background-size: cover; background-position: 50% 38%;"></div>
         </div>
-        <figcaption style="display: flex; flex-direction: column; gap: 6px; text-align: center;">
-          <span style="font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: #2e2823;">Moderna</span>
-          <span style="font-size: 12px; font-weight: 300; color: #8a8075;">Prava linija · mašna na leđima</span>
+        <figcaption style="display: flex; flex-direction: column; gap: 7px;">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 27px; color: #2b2520;">Margaux</span>
+          <span style="font-size: 15px; line-height: 1.6; color: #5c544b;">Prava linija · mat krep i mašna na struku</span>
         </figcaption>
       </figure>
     </div>
-  </section><section id="about" data-reveal="1" style="max-width: 1720px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); background: #f3ebdf;">
-    <div style="position: relative; min-height: clamp(320px, 44vw, 620px); overflow: hidden; background: #eee5d7;">
+  </section>
+
+  <div style="{{ lbStyle }}" onClick="{{ closeLb }}">
+    <div style="{{ lbImgStyle }}"></div>
+    <div style="display: flex; flex-direction: column; gap: 8px; align-items: center; text-align: center; color: #f5efe5;">
+      <span style="font-family: 'Cormorant Garamond', serif; font-size: 30px;">{{ lbName }}</span>
+      <span style="font-size: 15px; color: rgba(245,239,229,.78);">{{ lbNote }}</span>
+      <span style="margin-top: 6px; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: rgba(245,239,229,.55);">Kliknite bilo gde za zatvaranje</span>
+    </div>
+  </div>
+
+  <section id="about" data-reveal="1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); background: #f3ebdf;">
+    <div style="position: relative; min-height: clamp(320px, 44vw, 640px); overflow: hidden; background: #eee5d7;">
       <div style="position: absolute; inset: 0; background-image: url('assets/atelier-interior.png'); background-size: cover; background-position: 52% 45%;"></div>
     </div>
     <div style="padding: clamp(44px, 6vw, 96px) clamp(22px, 4vw, 64px); display: flex; flex-direction: column; gap: 22px; justify-content: center;">
-      <span style="font-size: 11px; letter-spacing: .4em; text-transform: uppercase; color: #a5854f;">O ateljeu</span>
-      <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(30px, 4vw, 50px); line-height: 1.12;">Tamo gde elegancija<br><em>dobija oblik</em></h2>
-      <div style="display: flex; flex-direction: column; gap: 16px; max-width: 46ch;">
-        <p style="margin: 0; font-size: 16px; font-weight: 300; line-height: 1.8; color: #5a5147; text-wrap: pretty;">Lumière Atelier je svadbeni studio posvećen haljinama koje nisu samo krojene po meri, već stvarane da odraze vašu ličnost, stil i priču.</p>
-        <p style="margin: 0; font-size: 16px; font-weight: 300; line-height: 1.8; color: #5a5147; text-wrap: pretty;">Od 2014. godine naše krojačice posvećeno stvaraju i prepravljaju venčanice, uz pažnju prema svakom detalju i pristup koji svaku nevestu stavlja u središte.</p>
-        <p style="margin: 0; font-size: 16px; font-weight: 300; line-height: 1.8; color: #5a5147; text-wrap: pretty;">Kod nas nema žurbe ni gužve. Svaki termin je privatan i posvećen samo vama — kako biste u miru birale, isprobavale i zajedno sa nama pronašle haljinu u kojoj ćete se osećati kao najbolja verzija sebe.</p>
+      <span style="font-size: 12px; font-weight: 500; letter-spacing: .32em; text-transform: uppercase; color: #8a6c26;">O ateljeu</span>
+      <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(30px, 4vw, 50px); line-height: 1.1; color: #2b2520;">Tamo gde elegancija<br><em>dobija oblik</em></h2>
+      <div style="display: flex; flex-direction: column; gap: 16px; max-width: 48ch;">
+        <p style="margin: 0; font-size: 17px; line-height: 1.8; color: #453e37; text-wrap: pretty;">Lumière Atelier je svadbeni studio posvećen haljinama koje nisu samo krojene po meri, već stvarane da odraze vašu ličnost, stil i priču.</p>
+        <p style="margin: 0; font-size: 17px; line-height: 1.8; color: #453e37; text-wrap: pretty;">Od 2014. godine u našem ateljeu stvaramo, prilagođavamo i dovršavamo venčanice sa posebnom pažnjom prema svakom detalju.</p>
+        <p style="margin: 0; font-size: 17px; line-height: 1.8; color: #453e37; text-wrap: pretty;">Verujemo da potraga za venčanicom ne treba da bude stresna. Zato je svaki termin privatan i posvećen samo vama, da u miru isprobate, razgovarate, istražite različite krojeve i pronađete haljinu u kojoj ćete se osećati potpuno svoje.</p>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; margin-top: 6px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 22px; margin-top: 10px; padding-top: 24px; border-top: 1px solid rgba(46,40,35,.16);">
         <div style="display: flex; flex-direction: column; gap: 8px;">
-          <span style="font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #2e2823;">Privatni salon</span>
-          <span style="font-size: 13px; font-weight: 300; line-height: 1.75; color: #7a7166;">Jedna nevesta po terminu, uz najviše tri gosta. Vaš trenutak, bez gužve i bez žurbe.</span>
+          <span style="font-size: 13px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: #241f1a;">Privatan salon</span>
+          <span style="font-size: 15px; line-height: 1.75; color: #4a423a;">Jedna nevesta po terminu, uz najviše tri gosta.</span>
         </div>
         <div style="display: flex; flex-direction: column; gap: 8px;">
-          <span style="font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #2e2823;">Sopstvena radionica</span>
-          <span style="font-size: 13px; font-weight: 300; line-height: 1.75; color: #7a7166;">Od prvog kroja do poslednje probe, sve radimo u našem ateljeu. Prepravke i završne detalje izrađujemo sami, sa posebnom pažnjom na savršeno pristajanje.</span>
+          <span style="font-size: 13px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: #241f1a;">Sopstvena radionica</span>
+          <span style="font-size: 15px; line-height: 1.75; color: #4a423a;">Od prvog kroja do poslednje probe, svaki detalj nastaje i završava se u našem ateljeu.</span>
         </div>
       </div>
-      <a href="#contact" style="align-self: flex-start; margin-top: 8px; padding: 15px 28px; border: 1px solid #c8ab77; color: #7d6335; font-size: 11px; letter-spacing: .26em; text-transform: uppercase;" style-hover="background: #e9dcc7;">Naša priča</a>
     </div>
   </section>
 
-  <section data-reveal="1" style="max-width: 1720px; margin: 0 auto; padding: clamp(44px, 6vw, 82px) clamp(22px, 4vw, 64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: clamp(24px, 3vw, 44px); background: #faf6f0; border-bottom: 1px solid rgba(46,40,35,.08);">
-    <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="4">
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center;">
-        <span style="width: 44px; height: 44px; border: 1px solid #c8ab77; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 17px; color: #a5854f;">{{ p.mark }}</span>
-        <span style="font-size: 11px; letter-spacing: .24em; text-transform: uppercase;">{{ p.title }}</span>
-        <span style="font-size: 13px; font-weight: 300; line-height: 1.7; color: #7a7166; max-width: 26ch;">{{ p.body }}</span>
+
+  <section id="sew" style="position: relative; background: #f7f2ea; height: 460vh;">
+    <div ref="{{ sewRef }}" style="position: sticky; top: 0; height: 100vh; min-height: 0; overflow: hidden;">
+      <div style="{{ sewGridStyle }}">
+        <div style="display: flex; flex-direction: column; gap: clamp(8px, 1.6vh, 18px); align-self: center; min-height: 0;">
+          <span style="font-size: 12px; font-weight: 500; letter-spacing: .32em; text-transform: uppercase; color: #8a6c26;">Izrada</span>
+          <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(24px, min(3.6vw, 6vh), 48px); line-height: 1.06; color: #2b2520;">Sašijmo je <em>zajedno</em></h2>
+          <div style="display: flex; flex-direction: column; gap: 0; margin-top: clamp(0px, .8vh, 6px);">
+            <div data-step="0" style="display: flex; gap: 14px; padding: clamp(6px, 1.1vh, 13px) 0; border-top: 1px solid rgba(46,40,35,.14); opacity: .35; transition: opacity .45s ease;">
+              <span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(15px, 2.4vh, 19px); color: #a5854f;">01</span>
+              <span style="display: flex; flex-direction: column; gap: 3px;">
+                <span style="font-size: 14px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #241f1a;">Krojna šema</span>
+                <span style="font-size: clamp(12px, 1.7vh, 14px); line-height: 1.5; color: #5c544b;">Mere prelaze u liniju kroja.</span>
+              </span>
+            </div>
+            <div data-step="1" style="display: flex; gap: 14px; padding: clamp(6px, 1.1vh, 13px) 0; border-top: 1px solid rgba(46,40,35,.14); opacity: .35; transition: opacity .45s ease;">
+              <span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(15px, 2.4vh, 19px); color: #a5854f;">02</span>
+              <span style="display: flex; flex-direction: column; gap: 3px;">
+                <span style="font-size: 14px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #241f1a;">Tkanina</span>
+                <span style="font-size: clamp(12px, 1.7vh, 14px); line-height: 1.5; color: #5c544b;">Svila se polaže i kroji.</span>
+              </span>
+            </div>
+            <div data-step="2" style="display: flex; gap: 14px; padding: clamp(6px, 1.1vh, 13px) 0; border-top: 1px solid rgba(46,40,35,.14); opacity: .35; transition: opacity .45s ease;">
+              <span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(15px, 2.4vh, 19px); color: #a5854f;">03</span>
+              <span style="display: flex; flex-direction: column; gap: 3px;">
+                <span style="font-size: 14px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #241f1a;">Šavovi</span>
+                <span style="font-size: clamp(12px, 1.7vh, 14px); line-height: 1.5; color: #5c544b;">Delovi se spajaju šav po šav.</span>
+              </span>
+            </div>
+            <div data-step="3" style="display: flex; gap: 14px; padding: clamp(6px, 1.1vh, 13px) 0; border-top: 1px solid rgba(46,40,35,.14); opacity: .35; transition: opacity .45s ease;">
+              <span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(15px, 2.4vh, 19px); color: #a5854f;">04</span>
+              <span style="display: flex; flex-direction: column; gap: 3px;">
+                <span style="font-size: 14px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #241f1a;">Čipka i šlep</span>
+                <span style="font-size: clamp(12px, 1.7vh, 14px); line-height: 1.5; color: #5c544b;">Ručno postavljeni detalji.</span>
+              </span>
+            </div>
+            <div data-step="4" style="display: flex; gap: 14px; padding: clamp(6px, 1.1vh, 13px) 0; border-top: 1px solid rgba(46,40,35,.14); border-bottom: 1px solid rgba(46,40,35,.14); opacity: .35; transition: opacity .45s ease;">
+              <span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(15px, 2.4vh, 19px); color: #a5854f;">05</span>
+              <span style="display: flex; flex-direction: column; gap: 3px;">
+                <span style="font-size: 14px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #241f1a;">Vaša haljina</span>
+                <span style="font-size: clamp(12px, 1.7vh, 14px); line-height: 1.5; color: #5c544b;">Spremna za prvu probu.</span>
+              </span>
+            </div>
+          </div>
+          <span style="font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #a5854f;">Skrolujte da sašijete haljinu</span>
+        </div>
+
+        <div style="position: relative; display: grid; place-items: center; min-height: 0;">
+          <div style="position: relative; width: 100%; height: 100%; max-height: 88vh; aspect-ratio: 2 / 3; margin: 0 auto; border-radius: 20px; overflow: hidden; background: #efe1cb; box-shadow: 0 24px 60px rgba(90,72,44,.14);">
+            <img data-frame="0" src="assets/sew-1.png" alt="Krojna šema venčanice" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 1; will-change: opacity;" />
+            <img data-frame="1" src="assets/sew-2.png" alt="Krojenje svile" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0;" />
+            <img data-frame="2" src="assets/sew-3.png" alt="Šavovi" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0;" />
+            <img data-frame="3" src="assets/sew-4.png" alt="Čipka i šlep" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0;" />
+            <img data-frame="4" src="assets/sew-5.png" alt="Gotova venčanica" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0;" />
+            <div data-el="shine" style="position: absolute; top: 0; bottom: 0; width: 42%; left: -50%; background: linear-gradient(100deg, rgba(255,255,255,0), rgba(255,255,255,.5), rgba(255,255,255,0)); opacity: 0; pointer-events: none;"></div>
+          </div>
+        </div>
       </div>
-    </sc-for>
+    </div>
   </section>
 
-  <section id="fit" data-reveal="1" style="background: #2e2823; color: #f5efe5;">
-    
-  <div style="max-width: 1720px; margin: 0 auto; padding: clamp(56px, 8vw, 112px) clamp(22px, 4vw, 64px); display: flex; flex-direction: column; gap: clamp(30px, 4vw, 52px);">
-      
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; align-items: end;">
-        <div style="display: flex; flex-direction: column; gap: 18px;">
-          <span style="font-size: 11px; letter-spacing: .4em; text-transform: uppercase; color: #c8ab77;">Kroj i figura</span>
-          <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(30px, 4.2vw, 54px); line-height: 1.1; max-width: 380px; text-align: left">Kroj koji prati vas</h2>
-        </div><p style="margin: 0; font-size: 16px; font-weight: 300; line-height: 1.8; color: rgba(245,239,229,.7); max-width: 46ch;">Svaka figura je jedinstvena, baš kao i svaka mlada. Istražite kako različiti krojevi naglašavaju prirodnu siluetu i saznajte šta prilagođavamo na probama kako bi vaša haljina savršeno pristajala.</p>
-        
-      </div><div style="display: flex; flex-wrap: wrap; gap: 10px;">
-        <sc-for list="{{ silhouetteTabs }}" as="t" hint-placeholder-count="3">
-          <button type="button" onClick="{{ t.onSelect }}" style="{{ t.style }}">{{ t.label }}</button>
-        </sc-for>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(16px, 2vw, 26px); align-items: stretch;">
-        <div style="position: relative; grid-column: span 2; min-width: 0; background: radial-gradient(120% 90% at 50% 8%, rgba(245,239,229,.12), rgba(245,239,229,.02)); border: 1px solid rgba(245,239,229,.14); height: clamp(420px, 58vh, 620px);">
-          <x-import component-from-global-scope="fit-stage" from="./fit-stage.js" gown="{{ gownIndex }}" bust="{{ bust }}" waist="{{ waist }}" hip="{{ hip }}" hint-size="100%,100%"></x-import>
-          <span style="position: absolute; left: 16px; bottom: 14px; font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: rgba(245,239,229,.45);">Prevucite da zarotirate</span>
-        </div>
-        <figure style="margin: 0; display: flex; flex-direction: column; border: 1px solid rgba(245,239,229,.14);">
-          <div style="{{ gownPhotoStyle }}"></div>
-          <figcaption style="display: flex; flex-direction: column; gap: 6px; padding: 16px 18px 18px;">
-            <span style="font-size: 11px; letter-spacing: .24em; text-transform: uppercase;">{{ gownName }}</span>
-            <span style="font-size: 12px; font-weight: 300; line-height: 1.7; color: rgba(245,239,229,.6);">Model iz kolekcije na kome je zasnovan prikaz.</span>
-          </figcaption>
-        </figure>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: clamp(22px, 3vw, 44px); padding-top: clamp(18px, 2.4vw, 30px); border-top: 1px solid rgba(245,239,229,.16);">
-        <label style="display: flex; flex-direction: column; gap: 12px;">
-          <span style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px;">
-            <span style="font-size: 11px; letter-spacing: .24em; text-transform: uppercase;">Obim grudi</span>
-            <span style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #c8ab77;">{{ bustLabel }}</span>
-          </span>
-          <input type="range" min="76" max="130" step="1" value="{{ bust }}" onChange="{{ onBust }}" onInput="{{ onBust }}" />
-        </label>
-        <label style="display: flex; flex-direction: column; gap: 12px;">
-          <span style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px;">
-            <span style="font-size: 11px; letter-spacing: .24em; text-transform: uppercase;">Obim struka</span>
-            <span style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #c8ab77;">{{ waistLabel }}</span>
-          </span>
-          <input type="range" min="58" max="120" step="1" value="{{ waist }}" onChange="{{ onWaist }}" onInput="{{ onWaist }}" />
-        </label>
-        <label style="display: flex; flex-direction: column; gap: 12px;">
-          <span style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px;">
-            <span style="font-size: 11px; letter-spacing: .24em; text-transform: uppercase;">Obim kukova</span>
-            <span style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #c8ab77;">{{ hipLabel }}</span>
-          </span>
-          <input type="range" min="82" max="140" step="1" value="{{ hip }}" onChange="{{ onHip }}" onInput="{{ onHip }}" />
-        </label>
-      </div>
-    </div></section>
-
-  <section id="services" data-reveal="1" style="max-width: 1720px; margin: 0 auto; padding: clamp(56px, 8vw, 112px) clamp(22px, 4vw, 64px); display: flex; flex-direction: column; gap: clamp(30px, 4vw, 50px);">
+  <section id="services" data-reveal="1" style="max-width: 1560px; margin: 0 auto; padding: clamp(56px, 8vw, 112px) clamp(22px, 4vw, 64px); display: flex; flex-direction: column; gap: clamp(32px, 4vw, 52px);">
     <div style="display: flex; flex-direction: column; gap: 16px; max-width: 46ch;">
-      <span style="font-size: 11px; letter-spacing: .4em; text-transform: uppercase; color: #a5854f;">Usluge</span>
-      <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(30px, 4.2vw, 52px); line-height: 1.1;">Od prve skice<br><em>do poslednjeg šava</em></h2>
-      <div style="position: relative; height: 36px; margin-top: 2px; background-image: radial-gradient(circle at 6px 6px, rgba(165,133,79,.22) 1.1px, transparent 1.6px); background-size: 12px 12px; background-position: 0 12px;">
+      <span style="font-size: 12px; font-weight: 500; letter-spacing: .32em; text-transform: uppercase; color: #8a6c26;">Usluge</span>
+      <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(30px, 4.2vw, 52px); line-height: 1.08;">Od prve skice<br><em>do poslednjeg šava</em></h2>
+      <div style="position: relative; height: 36px; margin-top: 2px;">
         <svg viewBox="0 0 420 36" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible;">
           <circle cx="4" cy="22" r="3" fill="#a5854f"></circle>
           <path d="M4 22 C 70 6, 140 34, 210 18 S 330 6, 384 16" fill="none" stroke="#c8ab77" stroke-width="1.3" stroke-dasharray="7 5" style="animation: lumSew 9s linear infinite;"></path>
@@ -236,157 +261,260 @@
         </svg>
       </div>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0; border-top: 1px solid rgba(46,40,35,.12); border-left: 1px solid rgba(46,40,35,.12);">
-      <sc-for list="{{ services }}" as="s" hint-placeholder-count="4">
-        <article style="background: #faf6f0; padding: clamp(26px, 3vw, 40px); display: flex; flex-direction: column; gap: 14px; border-right: 1px solid rgba(46,40,35,.12); border-bottom: 1px solid rgba(46,40,35,.12); transition: background .4s ease;" style-hover="background: #f3ebdf;">
-          <span style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #c8ab77;">{{ s.no }}</span>
-          <h3 style="margin: 0; font-size: 12px; letter-spacing: .24em; text-transform: uppercase; font-weight: 500;">{{ s.title }}</h3>
-          <p style="margin: 0; font-size: 14px; font-weight: 300; line-height: 1.8; color: #6d6459;">{{ s.body }}</p>
-          <span style="font-size: 12px; letter-spacing: .16em; color: #a5854f; margin-top: auto;">{{ s.meta }}</span>
-        </article>
-      </sc-for>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: clamp(24px, 3vw, 44px);">
+      <article style="display: flex; flex-direction: column; gap: 14px; padding-top: 22px; border-top: 1px solid rgba(46,40,35,.22);">
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #a5854f;">01</span>
+        <h3 style="margin: 0; font-size: 14px; letter-spacing: .18em; text-transform: uppercase; font-weight: 500;">Konsultacije i izbor</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.8; color: #453e37;">Upoznajemo vaš stil, želje i ono u čemu želite da se osećate najbolje.</p>
+      </article>
+      <article style="display: flex; flex-direction: column; gap: 14px; padding-top: 22px; border-top: 1px solid rgba(46,40,35,.22);">
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #a5854f;">02</span>
+        <h3 style="margin: 0; font-size: 14px; letter-spacing: .18em; text-transform: uppercase; font-weight: 500;">Izrada i prilagođavanje</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.8; color: #453e37;">Kroj i detalji prilagođavaju se vašoj figuri i željenom izgledu.</p>
+      </article>
+      <article style="display: flex; flex-direction: column; gap: 14px; padding-top: 22px; border-top: 1px solid rgba(46,40,35,.22);">
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #a5854f;">03</span>
+        <h3 style="margin: 0; font-size: 14px; letter-spacing: .18em; text-transform: uppercase; font-weight: 500;">Probe</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.8; color: #453e37;">Kroz nekoliko proba postepeno oblikujemo savršeno pristajanje.</p>
+      </article>
+      <article style="display: flex; flex-direction: column; gap: 14px; padding-top: 22px; border-top: 1px solid rgba(46,40,35,.22);">
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #a5854f;">04</span>
+        <h3 style="margin: 0; font-size: 14px; letter-spacing: .18em; text-transform: uppercase; font-weight: 500;">Završni detalji</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.8; color: #453e37;">Poslednje korekcije, porubljivanje i svi detalji koji haljinu čine potpuno vašom.</p>
+      </article>
     </div>
+    <p style="margin: 0; padding: 20px 24px; background: #f3ebdf; font-size: 16px; line-height: 1.8; color: #453e37; max-width: 62ch;">Prepravljamo i haljine kupljene drugde: od korekcije kroja i dužine do podizanja šlepa.</p>
   </section>
 
-  <section data-reveal="1" style="background: #f3ebdf;">
-    <div style="max-width: 1720px; margin: 0 auto; padding: clamp(50px, 7vw, 96px) clamp(22px, 4vw, 64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(28px, 4vw, 56px);">
-      <div style="display: flex; flex-direction: column; gap: 16px;">
-        <span style="font-size: 11px; letter-spacing: .4em; text-transform: uppercase; color: #a5854f;">Put do haljine</span>
-        <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(28px, 3.6vw, 46px); line-height: 1.12;">Šest meseci,<br><em>četiri probe</em></h2>
-        <p style="margin: 0; font-size: 15px; font-weight: 300; line-height: 1.8; color: #5a5147; max-width: 36ch;">Preporučujemo da počnete osam do deset meseci pre svadbe. Ekspresna izrada je moguća i u roku od dvanaest nedelja.</p>
-      </div>
-      <div style="display: flex; flex-direction: column;">
-        <sc-for list="{{ steps }}" as="st" hint-placeholder-count="5">
-          <div style="display: grid; grid-template-columns: 72px 1fr; gap: 20px; padding: 20px 0; border-bottom: 1px solid rgba(46,40,35,.12);">
-            <span style="font-family: 'Cormorant Garamond', serif; font-size: 15px; letter-spacing: .06em; color: #a5854f;">{{ st.when }}</span>
-            <div style="display: flex; flex-direction: column; gap: 6px;">
-              <span style="font-size: 11px; letter-spacing: .24em; text-transform: uppercase;">{{ st.title }}</span>
-              <span style="font-size: 14px; font-weight: 300; line-height: 1.75; color: #6d6459;">{{ st.body }}</span>
-            </div>
-          </div>
-        </sc-for>
-      </div>
-    </div>
-  </section>
-
-  <section id="journal" data-reveal="1" style="max-width: 1720px; margin: 0 auto; padding: clamp(56px, 8vw, 108px) clamp(22px, 4vw, 64px); display: flex; flex-direction: column; gap: clamp(26px, 3vw, 44px);">
+  <section id="journal" data-reveal="1" style="max-width: 1560px; margin: 0 auto; padding: clamp(56px, 8vw, 108px) clamp(22px, 4vw, 64px); display: flex; flex-direction: column; gap: clamp(26px, 3vw, 44px);">
     <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 16px;">
-      <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(28px, 3.6vw, 46px);">Neveste <em>o nama</em></h2>
-      <span style="font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: #a5854f;">4,9 / 5 · 128 ocena</span>
+      <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(28px, 3.6vw, 46px);">Iskustva <em>nevesta</em></h2>
+      <span style="font-size: 13px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: #8a6c26;">4,9 / 5 · 128 ocena</span>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: clamp(18px, 2.4vw, 32px);">
-      <sc-for list="{{ quotes }}" as="q" hint-placeholder-count="3">
-        <blockquote style="margin: 0; padding: clamp(24px, 3vw, 36px); background: #f6f0e7; display: flex; flex-direction: column; gap: 18px;">
-          <span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(17px, 1.6vw, 21px); font-style: italic; line-height: 1.6; color: #3b342d;">{{ q.text }}</span>
-          <span style="font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #8a8075;">{{ q.who }}</span>
-        </blockquote>
-      </sc-for>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(18px, 2.4vw, 32px);">
+      <blockquote style="margin: 0; padding: clamp(24px, 3vw, 36px); background: #f6f0e7; display: flex; flex-direction: column; gap: 18px;">
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 1.6vw, 21px); font-style: italic; line-height: 1.6; color: #3b342d;">„Od prvog trenutka sam znala da sam na pravom mestu. Bez žurbe, bez pritiska, samo iskren savet o tome šta mi zaista pristaje.”</span>
+        <span style="font-size: 13px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: #5c544b;">Ana · Beograd</span>
+      </blockquote>
+      <blockquote style="margin: 0; padding: clamp(24px, 3vw, 36px); background: #f6f0e7; display: flex; flex-direction: column; gap: 18px;">
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 1.6vw, 21px); font-style: italic; line-height: 1.6; color: #3b342d;">„Gornji deo su prepravljali dva puta dok nije stajao savršeno. Na dan svadbe nisam nijednom pomislila na haljinu.”</span>
+        <span style="font-size: 13px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: #5c544b;">Marija · Vršac</span>
+      </blockquote>
+      <blockquote style="margin: 0; padding: clamp(24px, 3vw, 36px); background: #f6f0e7; display: flex; flex-direction: column; gap: 18px;">
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 1.6vw, 21px); font-style: italic; line-height: 1.6; color: #3b342d;">„Donela sam haljinu kupljenu u inostranstvu i vratili su joj oblik, kao da je od početka krojena za mene.”</span>
+        <span style="font-size: 13px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: #5c544b;">Tijana · Kragujevac</span>
+      </blockquote>
+      <blockquote style="margin: 0; padding: clamp(24px, 3vw, 36px); background: #f6f0e7; display: flex; flex-direction: column; gap: 18px;">
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 1.6vw, 21px); font-style: italic; line-height: 1.6; color: #3b342d;">„Izašla sam sa haljinom koja mi stoji bolje od svega što sam ikada obukla. I sa osećajem da su me stvarno slušali.”</span>
+        <span style="font-size: 13px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: #5c544b;">Jelena · Novi Sad</span>
+      </blockquote>
     </div>
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=Lumi%C3%A8re+Atelier+Kralja+Petra+42+Beograd" target="_blank" rel="noopener" style="align-self: flex-start; font-size: 13px; letter-spacing: .22em; text-transform: uppercase; color: #8a6c26;">Pogledajte sva iskustva naših nevesta →</a>
   </section>
 
   <section data-reveal="1" style="background: #faf6f0; border-top: 1px solid rgba(46,40,35,.08);">
-    <div style="max-width: 1100px; margin: 0 auto; padding: clamp(50px, 7vw, 100px) clamp(22px, 4vw, 64px); display: flex; flex-direction: column; gap: 26px;">
+    <div style="max-width: 1000px; margin: 0 auto; padding: clamp(50px, 7vw, 100px) clamp(22px, 4vw, 64px); display: flex; flex-direction: column; gap: 26px;">
       <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(28px, 3.6vw, 46px);">Česta <em>pitanja</em></h2>
       <div style="display: flex; flex-direction: column;">
-        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="4">
-          <div style="border-bottom: 1px solid rgba(46,40,35,.14);">
-            <button type="button" onClick="{{ f.onToggle }}" style="width: 100%; background: none; border: 0; padding: 22px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px; cursor: pointer; text-align: left;">
-              <span style="font-size: clamp(15px, 1.5vw, 18px); font-weight: 300;">{{ f.q }}</span>
-              <span style="{{ f.iconStyle }}">+</span>
-            </button>
-            <div style="{{ f.panelStyle }}">
-              <p style="margin: 0; padding-bottom: 24px; max-width: 62ch; font-size: 15px; font-weight: 300; line-height: 1.85; color: #6d6459;">{{ f.a }}</p>
-            </div>
-          </div>
-        </sc-for>
+        <details style="border-bottom: 1px solid rgba(46,40,35,.14);">
+          <summary style="padding: 20px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+            <span style="font-size: clamp(16px, 1.5vw, 18px); font-weight: 500; color: #241f1a;">Koliko ranije treba da zakažem termin?</span>
+            <span data-plus="1" style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #a5854f; line-height: 1; transition: transform .4s cubic-bezier(.2,.7,.2,1);">+</span>
+          </summary>
+          <p style="margin: 0; padding: 0 0 22px; max-width: 62ch; font-size: 16px; line-height: 1.85; color: #453e37;">Za haljinu po meri idealno je osam do deset meseci pre svadbe. Sam termin u salonu obično je slobodan u roku od nedelju dana.</p>
+        </details>
+        <details style="border-bottom: 1px solid rgba(46,40,35,.14);">
+          <summary style="padding: 20px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+            <span style="font-size: clamp(16px, 1.5vw, 18px); font-weight: 500; color: #241f1a;">Da li je proba venčanica besplatna?</span>
+            <span data-plus="1" style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #a5854f; line-height: 1; transition: transform .4s cubic-bezier(.2,.7,.2,1);">+</span>
+          </summary>
+          <p style="margin: 0; padding: 0 0 22px; max-width: 62ch; font-size: 16px; line-height: 1.85; color: #453e37;">Jeste. Prvi termin je besplatan i bez obaveze.</p>
+        </details>
+        <details style="border-bottom: 1px solid rgba(46,40,35,.14);">
+          <summary style="padding: 20px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+            <span style="font-size: clamp(16px, 1.5vw, 18px); font-weight: 500; color: #241f1a;">Koliko traje termin?</span>
+            <span data-plus="1" style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #a5854f; line-height: 1; transition: transform .4s cubic-bezier(.2,.7,.2,1);">+</span>
+          </summary>
+          <p style="margin: 0; padding: 0 0 22px; max-width: 62ch; font-size: 16px; line-height: 1.85; color: #453e37;">Devedeset minuta, dovoljno da bez žurbe isprobate više krojeva.</p>
+        </details>
+        <details style="border-bottom: 1px solid rgba(46,40,35,.14);">
+          <summary style="padding: 20px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+            <span style="font-size: clamp(16px, 1.5vw, 18px); font-weight: 500; color: #241f1a;">Koliko osoba mogu da povedem?</span>
+            <span data-plus="1" style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #a5854f; line-height: 1; transition: transform .4s cubic-bezier(.2,.7,.2,1);">+</span>
+          </summary>
+          <p style="margin: 0; padding: 0 0 22px; max-width: 62ch; font-size: 16px; line-height: 1.85; color: #453e37;">Najviše tri gosta. Salon je privatan i u jednom terminu je samo jedna nevesta.</p>
+        </details>
+        <details style="border-bottom: 1px solid rgba(46,40,35,.14);">
+          <summary style="padding: 20px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+            <span style="font-size: clamp(16px, 1.5vw, 18px); font-weight: 500; color: #241f1a;">Da li radite venčanice po meri?</span>
+            <span data-plus="1" style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #a5854f; line-height: 1; transition: transform .4s cubic-bezier(.2,.7,.2,1);">+</span>
+          </summary>
+          <p style="margin: 0; padding: 0 0 22px; max-width: 62ch; font-size: 16px; line-height: 1.85; color: #453e37;">Da. Svaka haljina se krojí prema vašim merama, u našoj radionici.</p>
+        </details>
+        <details style="border-bottom: 1px solid rgba(46,40,35,.14);">
+          <summary style="padding: 20px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+            <span style="font-size: clamp(16px, 1.5vw, 18px); font-weight: 500; color: #241f1a;">Da li radite prepravke venčanica?</span>
+            <span data-plus="1" style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #a5854f; line-height: 1; transition: transform .4s cubic-bezier(.2,.7,.2,1);">+</span>
+          </summary>
+          <p style="margin: 0; padding: 0 0 22px; max-width: 62ch; font-size: 16px; line-height: 1.85; color: #453e37;">Radimo i prepravke haljina kupljenih drugde: kroj, dužina, korpe i šlep.</p>
+        </details>
+        <details style="border-bottom: 1px solid rgba(46,40,35,.14);">
+          <summary style="padding: 20px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+            <span style="font-size: clamp(16px, 1.5vw, 18px); font-weight: 500; color: #241f1a;">Koliko proba je potrebno?</span>
+            <span data-plus="1" style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #a5854f; line-height: 1; transition: transform .4s cubic-bezier(.2,.7,.2,1);">+</span>
+          </summary>
+          <p style="margin: 0; padding: 0 0 22px; max-width: 62ch; font-size: 16px; line-height: 1.85; color: #453e37;">Obično četiri, uključujući završnu probu pred svadbu.</p>
+        </details>
+        <details style="border-bottom: 1px solid rgba(46,40,35,.14);">
+          <summary style="padding: 20px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+            <span style="font-size: clamp(16px, 1.5vw, 18px); font-weight: 500; color: #241f1a;">Šta treba da ponesem na probu?</span>
+            <span data-plus="1" style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #a5854f; line-height: 1; transition: transform .4s cubic-bezier(.2,.7,.2,1);">+</span>
+          </summary>
+          <p style="margin: 0; padding: 0 0 22px; max-width: 62ch; font-size: 16px; line-height: 1.85; color: #453e37;">Obuću sa visinom potpetice koju planirate i donji veš bez šavova.</p>
+        </details>
+        <details style="border-bottom: 1px solid rgba(46,40,35,.14);">
+          <summary style="padding: 20px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+            <span style="font-size: clamp(16px, 1.5vw, 18px); font-weight: 500; color: #241f1a;">Da li je moguće izraditi venčanicu u kraćem roku?</span>
+            <span data-plus="1" style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #a5854f; line-height: 1; transition: transform .4s cubic-bezier(.2,.7,.2,1);">+</span>
+          </summary>
+          <p style="margin: 0; padding: 0 0 22px; max-width: 62ch; font-size: 16px; line-height: 1.85; color: #453e37;">Da, ekspresna izrada je moguća u roku od dvanaest nedelja.</p>
+        </details>
       </div>
     </div>
   </section>
 
   <section id="contact" data-reveal="1" style="background: #f3ebdf;">
-    <div style="max-width: 1720px; margin: 0 auto; padding: clamp(56px, 8vw, 110px) clamp(22px, 4vw, 64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(30px, 5vw, 72px);">
-      <div style="display: flex; flex-direction: column; gap: 22px;">
-        <span style="font-size: 11px; letter-spacing: .4em; text-transform: uppercase; color: #a5854f;">Rezervacija termina</span>
-        <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(30px, 4.2vw, 52px); line-height: 1.1;">Posetite salon,<br><em>uz zakazan termin</em></h2>
-        <p style="margin: 0; max-width: 38ch; font-size: 15px; font-weight: 300; line-height: 1.8; color: #5a5147;">Termin traje 90 minuta i besplatan je. Ponesite obuću i donji veš koje planirate da nosite, i povedite najviše tri gosta.</p>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; margin-top: 4px;">
-          <div style="display: flex; flex-direction: column; gap: 6px;">
-            <span style="font-size: 10px; letter-spacing: .26em; text-transform: uppercase; color: #8a8075;">Adresa</span>
-            <span style="font-size: 14px; font-weight: 300; line-height: 1.7;">Kralja Petra 42<br>11000 Beograd</span>
+    <div style="max-width: 1560px; margin: 0 auto; padding: clamp(56px, 8vw, 110px) clamp(22px, 4vw, 64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(30px, 5vw, 72px);">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <span style="font-size: 12px; font-weight: 500; letter-spacing: .32em; text-transform: uppercase; color: #8a6c26;">Rezervacija termina</span>
+        <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(30px, 4.2vw, 52px); line-height: 1.08;">Posetite salon,<br><em>uz zakazan termin</em></h2>
+        <p style="margin: 0; max-width: 40ch; font-family: 'Cormorant Garamond', serif; font-size: clamp(19px, 1.8vw, 23px); font-style: italic; line-height: 1.5; color: #4a423a;">Vaš prvi korak ka venčanici iz snova počinje jednim privatnim terminom.</p>
+        <p style="margin: 0; max-width: 42ch; font-size: 16px; line-height: 1.8; color: #453e37;">Termin traje 90 minuta i potpuno je besplatan. Ponesite obuću i donji veš koje planirate da nosite uz haljinu i povedite najviše tri gosta.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 22px; margin-top: 8px; padding-top: 26px; border-top: 1px solid rgba(46,40,35,.16);">
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-size: 12px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: #4a423a;">Kako do nas</span>
+            <span style="font-size: 15px; line-height: 1.7;">Kralja Petra 42<br>11000 Beograd</span>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Kralja+Petra+42+Beograd" target="_blank" rel="noopener" style="align-self: flex-start; margin-top: 4px; padding: 11px 20px; border-radius: 999px; border: 1px solid #c8ab77; color: #7d6335; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; transition: all .3s ease;" style-hover="background: #e9dcc7;">Otvori u Google Maps</a>
           </div>
-          <div style="display: flex; flex-direction: column; gap: 6px;">
-            <span style="font-size: 10px; letter-spacing: .26em; text-transform: uppercase; color: #8a8075;">Kontakt</span>
-            <span style="font-size: 14px; font-weight: 300; line-height: 1.7;"><a href="tel:+381115550142">+381 11 555 0142</a><br><a href="mailto:studio@lumiere-atelier.rs">studio@lumiere-atelier.rs</a></span>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 6px;">
-            <span style="font-size: 10px; letter-spacing: .26em; text-transform: uppercase; color: #8a8075;">Radno vreme</span>
-            <span style="font-size: 14px; font-weight: 300; line-height: 1.7;">Uto–pet 11–19<br>Sub 10–16 · Ned zatvoreno</span>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-size: 12px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: #4a423a;">Kontakt</span>
+            <span style="font-size: 15px; line-height: 1.8;"><a href="tel:+381115550142">+381 11 555 0142</a><br><a href="mailto:studio@lumiere-atelier.rs">studio@lumiere-atelier.rs</a></span>
+            <span style="font-size: 15px; line-height: 1.7; color: #5c544b;">Uto-pet 11-19 · Sub 10-16<br>Nedeljom zatvoreno</span>
           </div>
         </div>
+
+        <a href="https://instagram.com" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 14px; align-self: flex-start; margin-top: 6px; padding: 14px 22px 14px 16px; border-radius: 999px; background: #2e2823; color: #f5efe5; box-shadow: 0 10px 24px rgba(46,40,35,.22); transition: all .35s ease;" style-hover="background: #a5854f; color: #fffdf9; transform: translateY(-2px);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"></circle>
+          </svg>
+          <span style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-size: 12px; letter-spacing: .2em; text-transform: uppercase;">@lumiere.atelier</span>
+            <span style="font-size: 13px; color: rgba(245,239,229,.7);">Nove haljine i priče iz ateljea</span>
+          </span>
+        </a>
       </div>
 
-      <form onSubmit="{{ onSubmit }}" style="background: #faf6f0; padding: clamp(26px, 3.4vw, 44px); display: flex; flex-direction: column; gap: 18px;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px;">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 0;">
+        <form onSubmit="{{ onSubmit }}" style="position: relative; width: 100%; display: flex; flex-direction: column; gap: 20px; border: clamp(8px, .9vw, 12px) solid transparent; border-radius: clamp(150px, 26vw, 230px) clamp(150px, 26vw, 230px) clamp(24px, 2.4vw, 34px) clamp(24px, 2.4vw, 34px); padding: clamp(96px, 17vw, 148px) clamp(30px, 4.4vw, 54px) clamp(38px, 4.4vw, 54px); background-image: linear-gradient(#faf6f0, #faf6f0), linear-gradient(155deg, #e6d0a4 0%, #a5854f 42%, #d8bf90 72%, #8e703d 100%); background-origin: padding-box, border-box; background-clip: padding-box, border-box; background-repeat: no-repeat, no-repeat; box-shadow: 0 0 0 1px rgba(165,133,79,.28), inset 0 0 0 1px rgba(255,255,255,.6), 0 28px 64px rgba(90,72,44,.18);">
+          <span aria-hidden="true" style="position: absolute; inset: 0; border-radius: inherit; pointer-events: none; background: linear-gradient(150deg, rgba(255,255,255,.8) 0%, rgba(255,255,255,0) 26%, rgba(255,255,255,0) 74%, rgba(255,255,255,.28) 100%);"></span>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: clamp(-56px, -7vw, -34px); margin-bottom: 6px; text-align: center;">
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 2.4vw, 30px); font-style: italic; color: #7d6335;">Vaš termin</span>
+            <span style="width: 40px; height: 1px; background: #c8ab77;"></span>
+          </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 18px;">
           <label style="display: flex; flex-direction: column; gap: 8px;">
-            <span style="font-size: 10px; letter-spacing: .26em; text-transform: uppercase; color: #8a8075;">Ime i prezime</span>
-            <input required="required" name="name" placeholder="Ana Jovanović" style="padding: 13px 0; border: 0; border-bottom: 1px solid rgba(46,40,35,.24); background: none; font-size: 15px; font-weight: 300; outline: none;" style-focus="border-bottom-color: #a5854f;">
+            <span style="font-size: 12px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: #4a423a;">Ime i prezime</span>
+            <input required="required" name="name" placeholder="Ana Jovanović" style="padding: 13px 0; border: 0; border-bottom: 1px solid rgba(46,40,35,.24); background: none; font-size: 16px; outline: none;" style-focus="border-bottom-color: #a5854f;">
           </label>
           <label style="display: flex; flex-direction: column; gap: 8px;">
-            <span style="font-size: 10px; letter-spacing: .26em; text-transform: uppercase; color: #8a8075;">Telefon ili e-mail</span>
-            <input required="required" name="contact" placeholder="+381 …" style="padding: 13px 0; border: 0; border-bottom: 1px solid rgba(46,40,35,.24); background: none; font-size: 15px; font-weight: 300; outline: none;" style-focus="border-bottom-color: #a5854f;">
+            <span style="font-size: 12px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: #4a423a;">Telefon / e-mail</span>
+            <input required="required" name="contact" placeholder="+381 …" style="padding: 13px 0; border: 0; border-bottom: 1px solid rgba(46,40,35,.24); background: none; font-size: 16px; outline: none;" style-focus="border-bottom-color: #a5854f;">
           </label>
           <label style="display: flex; flex-direction: column; gap: 8px;">
-            <span style="font-size: 10px; letter-spacing: .26em; text-transform: uppercase; color: #8a8075;">Datum svadbe</span>
-            <input name="date" type="date" style="padding: 13px 0; border: 0; border-bottom: 1px solid rgba(46,40,35,.24); background: none; font-size: 15px; font-weight: 300; outline: none;" style-focus="border-bottom-color: #a5854f;">
+            <span style="font-size: 12px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: #4a423a;">Datum venčanja</span>
+            <input name="date" type="date" style="padding: 13px 0; border: 0; border-bottom: 1px solid rgba(46,40,35,.24); background: none; font-size: 16px; outline: none;" style-focus="border-bottom-color: #a5854f;">
           </label>
           <label style="display: flex; flex-direction: column; gap: 8px;">
-            <span style="font-size: 10px; letter-spacing: .26em; text-transform: uppercase; color: #8a8075;">Kroj</span>
-            <select name="silhouette" style="padding: 13px 0; border: 0; border-bottom: 1px solid rgba(46,40,35,.24); background: none; font-size: 15px; font-weight: 300; outline: none;" style-focus="border-bottom-color: #a5854f;">
-              <option>Klasična</option>
-              <option>Elegantna</option>
-              <option>Moderna</option>
+            <span style="font-size: 12px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: #4a423a;">Šta tražite</span>
+            <select name="silhouette" style="padding: 13px 0; border: 0; border-bottom: 1px solid rgba(46,40,35,.24); background: none; font-size: 16px; outline: none;" style-focus="border-bottom-color: #a5854f;">
+              <option>Haljina po meri</option>
+              <option>Model iz kolekcije</option>
+              <option>Prepravka venčanice</option>
               <option>Još ne znam</option>
             </select>
           </label>
         </div>
+
+        <div style="display: flex; flex-direction: column; gap: 14px; padding-top: 22px; border-top: 1px solid rgba(46,40,35,.14);">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 14px;">
+            <span style="font-size: 12px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: #4a423a;">Izaberite termin</span>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <button type="button" onClick="{{ onPrevMonth }}" aria-label="Prethodni mesec" style="{{ prevBtnStyle }}">‹</button>
+              <span style="min-width: 132px; text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 19px; color: #2b2520;">{{ monthLabel }}</span>
+              <button type="button" onClick="{{ onNextMonth }}" aria-label="Sledeći mesec" style="{{ nextBtnStyle }}">›</button>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px;">
+            <sc-for list="{{ weekdays }}" as="w" hint-placeholder-count="7">
+              <span style="padding: 4px 0; text-align: center; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #8a8078;">{{ w }}</span>
+            </sc-for>
+            <sc-for list="{{ days }}" as="d" hint-placeholder-count="35">
+              <button type="button" onClick="{{ d.onSelect }}" disabled="{{ d.disabled }}" style="{{ d.style }}">{{ d.label }}</button>
+            </sc-for>
+          </div>
+
+          <div style="{{ slotsWrapStyle }}">
+            <span style="font-size: 12px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: #4a423a;">{{ slotsTitle }}</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <sc-for list="{{ slots }}" as="sl" hint-placeholder-count="5">
+                <button type="button" onClick="{{ sl.onSelect }}" disabled="{{ sl.taken }}" style="{{ sl.style }}">{{ sl.label }}</button>
+              </sc-for>
+            </div>
+            <span style="font-size: 13px; line-height: 1.6; color: #6b6157;">{{ slotsNote }}</span>
+          </div>
+
+          <span style="{{ pickedStyle }}">{{ pickedLabel }}</span>
+        </div>
         <label style="display: flex; flex-direction: column; gap: 8px;">
-          <span style="font-size: 10px; letter-spacing: .26em; text-transform: uppercase; color: #8a8075;">Nešto što treba da znamo</span>
-          <textarea name="message" rows="3" placeholder="Mesto svadbe, stil koji volite, gosti koji dolaze s vama…" style="padding: 13px 0; border: 0; border-bottom: 1px solid rgba(46,40,35,.24); background: none; font-size: 15px; font-weight: 300; outline: none; resize: vertical;" style-focus="border-bottom-color: #a5854f;"></textarea>
+          <span style="font-size: 12px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: #4a423a;">Poruka</span>
+          <textarea name="message" rows="3" placeholder="Mesto svadbe, stil koji volite, gosti koji dolaze sa vama…" style="padding: 13px 0; border: 0; border-bottom: 1px solid rgba(46,40,35,.24); background: none; font-size: 16px; line-height: 1.6; outline: none; resize: vertical;" style-focus="border-bottom-color: #a5854f;"></textarea>
         </label>
-        <button type="submit" style="margin-top: 6px; padding: 17px 30px; border: 0; background: #a5854f; color: #fffdf9; font-size: 11px; letter-spacing: .26em; text-transform: uppercase; cursor: pointer;" style-hover="background: #8e703d;">Pošaljite zahtev</button>
+        <button type="submit" style="margin-top: 6px; padding: 18px 32px; border-radius: 999px; box-shadow: 0 10px 24px rgba(125,99,53,.26); transition: all .35s ease; border: 0; background: #a5854f; color: #fffdf9; font-size: 12px; letter-spacing: .26em; text-transform: uppercase; cursor: pointer;" style-hover="background: #8e703d;">Zakažite termin</button>
         <span style="{{ sentStyle }}">{{ sentMessage }}</span>
-      </form>
+        </form>
+        <span aria-hidden="true" style="display: block; width: clamp(14px, 1.5vw, 20px); height: clamp(50px, 6vw, 84px); margin-top: -2px; border-radius: 0 0 999px 999px; background: linear-gradient(90deg, #b8955c 0%, #e2cb9c 38%, #a5854f 100%); box-shadow: 0 12px 24px rgba(90,72,44,.22);"></span>
+        <span aria-hidden="true" style="display: block; width: clamp(52px, 6vw, 78px); height: clamp(10px, 1.2vw, 15px); margin-top: -2px; border-radius: 999px; background: linear-gradient(90deg, #a5854f, #e2cb9c, #a5854f); box-shadow: 0 10px 20px rgba(90,72,44,.2);"></span>
+      </div>
     </div>
   </section>
 
-  <footer style="background: #2e2823; color: rgba(245,239,229,.72);">
-    <div style="max-width: 1720px; margin: 0 auto; padding: clamp(44px, 6vw, 76px) clamp(22px, 4vw, 64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: clamp(26px, 4vw, 56px);">
-      <div style="display: flex; flex-direction: column; gap: 12px;">
-        <span style="font-family: 'Cormorant Garamond', serif; font-size: 22px; letter-spacing: .28em; text-transform: uppercase; color: #f5efe5;">Lumière</span>
-        <span style="font-size: 9px; letter-spacing: .5em; text-transform: uppercase; color: #c8ab77;">Atelier</span>
-        <p style="margin: 8px 0 0; font-size: 13px; font-weight: 300; line-height: 1.8; max-width: 30ch;">Venčanice po meri, krojene i dovršene u Beogradu od 2014.</p>
+  <footer style="background: #2e2823; color: rgba(245,239,229,.86);">
+    <div style="max-width: 1100px; margin: 0 auto; padding: clamp(48px, 6vw, 80px) clamp(22px, 4vw, 64px); display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center;">
+      <span style="font-family: 'Cormorant Garamond', serif; font-size: 26px; letter-spacing: .28em; text-transform: uppercase; color: #f5efe5;">Lumière Atelier</span>
+      <p style="margin: 0; max-width: 42ch; font-size: 15px; line-height: 1.8;">Venčanice po meri, krojene i dovršene u Beogradu od 2014.</p>
+      <nav style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 22px; font-size: 13px; letter-spacing: .18em; text-transform: uppercase;">
+        <a href="#collection" style="color: rgba(245,239,229,.9);" style-hover="color: #d9bf8c;">Kolekcija</a>
+        <a href="#about" style="color: rgba(245,239,229,.9);" style-hover="color: #d9bf8c;">O nama</a>
+        <a href="#services" style="color: rgba(245,239,229,.9);" style-hover="color: #d9bf8c;">Usluge</a>
+        <a href="#journal" style="color: rgba(245,239,229,.9);" style-hover="color: #d9bf8c;">Iskustva</a>
+        <a href="#contact" style="color: rgba(245,239,229,.9);" style-hover="color: #d9bf8c;">Kontakt</a>
+      </nav>
+      <div style="display: flex; gap: 20px; font-size: 13px; letter-spacing: .18em; text-transform: uppercase;">
+        <a href="https://instagram.com" target="_blank" rel="noopener" style="color: #d9bf8c;">Instagram</a>
+        <a href="https://pinterest.com" target="_blank" rel="noopener" style="color: #d9bf8c;">Pinterest</a>
       </div>
-      <div style="display: flex; flex-direction: column; gap: 10px;">
-        <span style="font-size: 10px; letter-spacing: .3em; text-transform: uppercase; color: #c8ab77;">Istražite</span>
-        <a href="#collection" style="font-size: 13px; font-weight: 300; color: rgba(245,239,229,.72);" style-hover="color: #f5efe5;">Kolekcija</a>
-        <a href="#fit" style="font-size: 13px; font-weight: 300; color: rgba(245,239,229,.72);" style-hover="color: #f5efe5;">Kroj i figura</a>
-        <a href="#services" style="font-size: 13px; font-weight: 300; color: rgba(245,239,229,.72);" style-hover="color: #f5efe5;">Usluge</a>
-        <a href="#journal" style="font-size: 13px; font-weight: 300; color: rgba(245,239,229,.72);" style-hover="color: #f5efe5;">Iskustva nevesta</a>
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 10px;">
-        <span style="font-size: 10px; letter-spacing: .3em; text-transform: uppercase; color: #c8ab77;">Posetite nas</span>
-        <span style="font-size: 13px; font-weight: 300; line-height: 1.8;">Kralja Petra 42<br>11000 Beograd, Srbija</span>
-        <a href="tel:+381115550142" style="font-size: 13px; font-weight: 300; color: rgba(245,239,229,.72);" style-hover="color: #f5efe5;">+381 11 555 0142</a>
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 10px;">
-        <span style="font-size: 10px; letter-spacing: .3em; text-transform: uppercase; color: #c8ab77;">Pratite nas</span>
-        <a href="#top" style="font-size: 13px; font-weight: 300; color: rgba(245,239,229,.72);" style-hover="color: #f5efe5;">Instagram</a>
-        <a href="#top" style="font-size: 13px; font-weight: 300; color: rgba(245,239,229,.72);" style-hover="color: #f5efe5;">Pinterest</a>
-        <a href="#top" style="font-size: 13px; font-weight: 300; color: rgba(245,239,229,.72);" style-hover="color: #f5efe5;">Newsletter</a>
+      <div style="display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.7;">
+        <span>Kralja Petra 42 · Beograd</span>
+        <a href="tel:+381115550142" style="color: rgba(245,239,229,.9);">+381 11 555 0142</a>
+        <a href="mailto:studio@lumiere-atelier.rs" style="color: rgba(245,239,229,.9);">studio@lumiere-atelier.rs</a>
       </div>
     </div>
     <div style="border-top: 1px solid rgba(245,239,229,.14);">
-      <div style="max-width: 1720px; margin: 0 auto; padding: 20px clamp(22px, 4vw, 64px); display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; font-size: 11px; letter-spacing: .18em; text-transform: uppercase;">
+      <div style="max-width: 1100px; margin: 0 auto; padding: 18px clamp(22px, 4vw, 64px); display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: rgba(245,239,229,.7);">
         <span>© 2026 Lumière Atelier</span>
         <span>Politika privatnosti · Uslovi</span>
       </div>
@@ -397,10 +525,10 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#a5854f&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#a5854f&quot;,&quot;#9c7b6a&quot;,&quot;#8a8f7d&quot;,&quot;#6f6a5c&quot;]},&quot;$preview&quot;:{&quot;width&quot;:1440}}">
 class Component extends DCLogic {
-  state = { menuOpen: false, isNarrow: false, silhouette: 0, figure: 1, openFaq: 0, sent: false, bust: 90, waist: 72, hip: 98 };
+  state = { menuOpen: false, isNarrow: false, silhouette: 0, sent: false, bust: 90, waist: 72, hip: 98, height: 168, view: 0, spinning: true, panelTab: 0, nudge: 0, lb: -1 };
 
   componentDidMount() {
-    this._onResize = () => this.setState({ isNarrow: window.innerWidth < 1000 });
+    this._onResize = () => this.setState({ isNarrow: window.innerWidth < 760, isFitNarrow: window.innerWidth < 1080 });
     this._onResize();
     window.addEventListener('resize', this._onResize);
     const els = Array.from(document.querySelectorAll('[data-reveal]'));
@@ -422,171 +550,609 @@ class Component extends DCLogic {
     }
   }
 
+  setupSew(el) {
+    this._sew = el;
+    if (!el || this._sewOn) return;
+    this._sewOn = true;
+    const frames = Array.from(el.querySelectorAll('[data-frame]'));
+    const steps = Array.from(el.querySelectorAll('[data-step]'));
+    const shine = el.querySelector('[data-el="shine"]');
+    const N = frames.length;
+
+    const update = () => {
+      this._sewTick = false;
+      const sec = el.parentElement;
+      if (!sec) return;
+      const r = sec.getBoundingClientRect();
+      const span = Math.max(1, r.height - window.innerHeight);
+      const p = Math.max(0, Math.min(1, -r.top / span));
+
+      // p spans N-1 cross-fades; hold each frame briefly, then blend
+      const t = p * (N - 1);
+      const i = Math.min(N - 2, Math.floor(t));
+      const raw = t - i;
+      const hold = 0.42;
+      const f = raw <= hold ? 0 : Math.min(1, (raw - hold) / (1 - hold));
+      const ease = f * f * (3 - 2 * f);
+
+      frames.forEach((img, k) => {
+        let o = 0;
+        if (k === i) o = 1;
+        else if (k === i + 1) o = ease;
+        else if (k < i) o = 0;
+        img.style.opacity = o.toFixed(3);
+        img.style.transform = k === i + 1 ? 'scale(' + (1.012 - ease * 0.012).toFixed(4) + ')' : 'none';
+      });
+
+      const act = Math.min(N - 1, Math.round(t));
+      steps.forEach((s, k) => { s.style.opacity = k === act ? '1' : '.32'; });
+
+      if (shine) {
+        const sp = Math.max(0, Math.min(1, (p - 0.9) / 0.1));
+        shine.style.opacity = sp > 0.01 && sp < 0.99 ? '1' : '0';
+        shine.style.left = (-50 + sp * 190).toFixed(1) + '%';
+      }
+    };
+
+    this._sewScroll = () => {
+      if (this._sewTick) return;
+      this._sewTick = true;
+      requestAnimationFrame(update);
+    };
+    window.addEventListener('scroll', this._sewScroll, { passive: true });
+    window.addEventListener('resize', this._sewScroll);
+    update();
+  }
+
+  monthNames = ['januar', 'februar', 'mart', 'april', 'maj', 'jun', 'jul', 'avgust', 'septembar', 'oktobar', 'novembar', 'decembar'];
+
+  slotTimes(dow) {
+    if (dow === 6) return ['10:00', '11:30', '13:00', '14:30'];
+    if (dow >= 2 && dow <= 5) return ['11:00', '12:30', '14:00', '15:30', '17:00'];
+    return [];
+  }
+
+  isOpen(d) {
+    const dow = d.getDay();
+    return dow === 6 || (dow >= 2 && dow <= 5);
+  }
+
+  taken(key, time) {
+    let h = 0;
+    const str = key + time;
+    for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) % 9973;
+    return h % 10 < 3;
+  }
+
+  dayKey(d) {
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+
+  fabricPresets = [
+    { key: 'svila', label: 'Svila', note: 'Težak, gladak pad', drop: 'mek i težak', weight: 'srednja', sheenTxt: 'izražen',
+      grav: 0.30, wind: 0.55, damp: 0.985, sheen: 0.9, base: [247, 239, 227], alpha: 1, lace: false },
+    { key: 'cipka', label: 'Čipka', note: 'Lagana, sa strukturom', drop: 'mek, sa telom', weight: 'lagana', sheenTxt: 'mat',
+      grav: 0.24, wind: 0.72, damp: 0.988, sheen: 0.45, base: [250, 243, 233], alpha: .96, lace: true },
+    { key: 'tul', label: 'Tul', note: 'Vazdušast, bujan', drop: 'lebdeći', weight: 'vrlo lagana', sheenTxt: 'blag',
+      grav: 0.13, wind: 1.15, damp: 0.992, sheen: 0.3, base: [252, 248, 241], alpha: .5, lace: false },
+    { key: 'krep', label: 'Krep', note: 'Mat, čvrsta linija', drop: 'ravan i sabran', weight: 'teža', sheenTxt: 'bez sjaja',
+      grav: 0.42, wind: 0.3, damp: 0.978, sheen: 0.14, base: [238, 231, 220], alpha: 1, lace: false }
+  ];
+
+  startCloth() {
+    const cv = this._canvas;
+    if (!cv || this._clothRunning) return;
+    this._clothRunning = true;
+    const ctx = cv.getContext('2d');
+    const COLS = 34, ROWS = 22;
+    let pts = [], W = 0, H = 0, sp = 0, ox = 0, oy = 0, t = 0;
+    const mouse = { x: -9999, y: -9999, on: false };
+
+    const build = () => {
+      const r = cv.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = r.width; H = r.height;
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      sp = Math.min((W * 0.82) / (COLS - 1), (H * 0.78) / (ROWS - 1));
+      ox = (W - sp * (COLS - 1)) / 2;
+      oy = H * 0.09;
+      pts = [];
+      for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) {
+        const px = ox + x * sp, py = oy + y * sp;
+        pts.push({ x: px, y: py, px, py, pin: y === 0 ? { x: px, y: py } : null });
+      }
+    };
+
+    const idx = (x, y) => y * COLS + x;
+
+    const step = (f) => {
+      t += 0.016;
+      for (let i = 0; i < pts.length; i++) {
+        const p = pts[i];
+        if (p.pin) continue;
+        const vx = (p.x - p.px) * f.damp, vy = (p.y - p.py) * f.damp;
+        p.px = p.x; p.py = p.y;
+        const row = Math.floor(i / COLS);
+        const gust = Math.sin(t * 1.1 + row * 0.22) * 0.5 + Math.sin(t * 0.43 + p.x * 0.012) * 0.5;
+        p.x += vx + gust * f.wind * 0.42;
+        p.y += vy + f.grav;
+        if (mouse.on) {
+          const dx = p.x - mouse.x, dy = p.y - mouse.y, d2 = dx * dx + dy * dy;
+          if (d2 < 12100 && d2 > 0.01) {
+            const d = Math.sqrt(d2), push = (110 - d) / 110 * 5.2;
+            p.x += (dx / d) * push; p.y += (dy / d) * push;
+          }
+        }
+      }
+      for (let k = 0; k < 3; k++) {
+        for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) {
+          const a = pts[idx(x, y)];
+          if (x < COLS - 1) solve(a, pts[idx(x + 1, y)]);
+          if (y < ROWS - 1) solve(a, pts[idx(x, y + 1)]);
+        }
+        for (const p of pts) if (p.pin) {
+          p.x = p.pin.x + Math.sin(t * 0.7 + p.pin.x * 0.01) * 6;
+          p.y = p.pin.y + Math.sin(t * 0.9 + p.pin.x * 0.014) * 3;
+        }
+      }
+    };
+
+    const solve = (a, b) => {
+      const dx = b.x - a.x, dy = b.y - a.y;
+      const d = Math.hypot(dx, dy) || 0.001;
+      const diff = (d - sp) / d * 0.5;
+      const mx = dx * diff, my = dy * diff;
+      if (!a.pin) { a.x += mx; a.y += my; }
+      if (!b.pin) { b.x -= mx; b.y -= my; }
+    };
+
+    const draw = (f) => {
+      ctx.clearRect(0, 0, W, H);
+      const [r0, g0, b0] = f.base;
+      ctx.lineJoin = 'round';
+      for (let x = 0; x < COLS - 1; x++) {
+        let sum = 0;
+        for (let y = 0; y < ROWS; y++) {
+          const a = pts[idx(x, y)], b = pts[idx(x + 1, y)];
+          sum += Math.hypot(b.x - a.x, b.y - a.y) / sp;
+        }
+        const fold = Math.max(0, Math.min(1.5, sum / ROWS));
+        const k = Math.max(0.34, Math.min(1.2, 0.58 + (fold - 0.88) * 1.7 * f.sheen));
+        const top = pts[idx(x, 0)], bot = pts[idx(x, ROWS - 1)];
+        const grad = ctx.createLinearGradient(top.x, top.y, bot.x, bot.y);
+        const shade = (m) => 'rgba(' + Math.round(r0 * k * m) + ',' + Math.round(g0 * k * m) + ',' + Math.round(b0 * k * m) + ',' + f.alpha + ')';
+        grad.addColorStop(0, shade(1.02));
+        grad.addColorStop(0.62, shade(0.95));
+        grad.addColorStop(1, shade(0.82));
+        ctx.fillStyle = grad; ctx.strokeStyle = shade(0.97); ctx.lineWidth = 1.1;
+        ctx.beginPath();
+        ctx.moveTo(pts[idx(x, 0)].x, pts[idx(x, 0)].y);
+        for (let y = 1; y < ROWS; y++) { const p = pts[idx(x, y)]; ctx.lineTo(p.x, p.y); }
+        for (let y = ROWS - 1; y >= 0; y--) { const p = pts[idx(x + 1, y)]; ctx.lineTo(p.x, p.y); }
+        ctx.closePath(); ctx.fill(); ctx.stroke();
+      }
+      if (f.lace) {
+        ctx.strokeStyle = 'rgba(146,120,80,.3)';
+        ctx.lineWidth = 1;
+        for (let y = 1; y < ROWS - 1; y += 2) for (let x = 1; x < COLS - 1; x += 2) {
+          const p = pts[idx(x, y)];
+          ctx.beginPath(); ctx.arc(p.x, p.y, sp * 0.42, 0, Math.PI * 2); ctx.stroke();
+        }
+      }
+
+    };
+
+    const loop = () => {
+      const f = this.fabricPresets[this.state.fabric ?? 0];
+      step(f); draw(f);
+      this._raf = requestAnimationFrame(loop);
+    };
+
+    this._clothResize = () => build();
+    window.addEventListener('resize', this._clothResize);
+    cv.addEventListener('pointermove', e => {
+      const r = cv.getBoundingClientRect();
+      mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; mouse.on = true;
+    });
+    cv.addEventListener('pointerleave', () => { mouse.on = false; });
+    build();
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const f = this.fabricPresets[0];
+      for (let i = 0; i < 220; i++) step(f);
+      draw(f);
+    } else loop();
+  }
+
   componentWillUnmount() {
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._sewScroll) { window.removeEventListener('scroll', this._sewScroll); window.removeEventListener('resize', this._sewScroll); }
+    if (this._clothResize) window.removeEventListener('resize', this._clothResize);
     window.removeEventListener('resize', this._onResize);
     if (this._io) this._io.disconnect();
     if (this._fallback) clearTimeout(this._fallback);
   }
 
-  silhouettes = [
-    { label: 'Klasična princes', width: 1, notes: [
-      { label: 'Gornji deo', body: 'Korset sa balenima i rukavima spuštenim s ramena; struktura nosi težinu suknje.' },
-      { label: 'Suknja i pad', body: 'Pet slojeva tila preko satena; dužina se podešava na drugoj probi.' } ] },
-    { label: 'Elegantna riblja kost', width: 0.74, notes: [
-      { label: 'Gornji deo', body: 'Čipkani rukavi na tilu, šavovi oblikovani po prirodnoj liniji struka.' },
-      { label: 'Suknja i pad', body: 'Širi se ispod kolena — mesto širenja pomeramo prema vašoj visini.' } ] },
-    { label: 'Moderna prava linija', width: 0.6, notes: [
-      { label: 'Gornji deo', body: 'Otvorena leđa u V liniji sa mekom mašnom, bez vidljivih balena.' },
-      { label: 'Suknja i pad', body: 'Mikado krojen dijagonalno, jedan čist pad od kuka do poda.' } ] }
+  models = [
+    { name: 'Séraphine', note: 'Princes silueta · svila i francuska čipka', img: 'assets/gown-klasicna.png' },
+    { name: 'Élodie', note: 'Riblja silueta · ručno izrađeni čipkani detalji', img: 'assets/gown-elegantna.png' },
+    { name: 'Margaux', note: 'Prava linija · mat krep i mašna na struku', img: 'assets/gown-moderna.png' }
   ];
 
-  figuresData = [
-    { name: 'Punija građa', size: 'EU 46–52', scale: 1.16, slot: 'foto probe · punija',
-      notes: ['Linija struka podignuta 2 cm, a bočni paneli pušteni da haljina čisto prati kuk.',
-              'Rukavi šire krojeni u nadlaktici; zatvaranje na leđima prelazi u pertlanje.',
-              'Volumen suknje smanjen tako da tkanina pada, a ne odstoji.'] },
-    { name: 'Standardna građa', size: 'EU 38–44', scale: 1, slot: 'foto probe · standardna',
-      notes: ['Salonska veličina — kroj stoji kako je nacrtan, podešavamo samo dužinu i bretele.',
-              'Jedan šav za oblikovanje na leđima drži gornji deo ravnim preko rebara.',
-              'Suknja pada u punom predviđenom volumenu.'] },
-    { name: 'Mršavija građa', size: 'EU 32–36', scale: 0.88, slot: 'foto probe · mršavija',
-      notes: ['Gornji deo sužen na četiri šava; laka postava drži dekolte da ne odstoji.',
-              'Bretele skraćene, linija ramena uvučena 1,5 cm.',
-              'Nabori suknje preraspoređeni da volumen počinje više u struku.'] }
+  silhouettes = [
+    { label: 'Klasična princes', width: 1 },
+    { label: 'Elegantna riblja kost', width: 0.74 },
+    { label: 'Moderna prava linija', width: 0.6 }
   ];
+
+  get inches() { return (this.state.unit ?? 0) === 1; }
+  fmt(cm) { return this.inches ? (cm / 2.54).toFixed(1) + ' in' : cm + ' cm'; }
+  out(cm) { return this.inches ? +(cm / 2.54).toFixed(1) : cm; }
+  toCm(v) {
+    const n = parseFloat(v);
+    if (!isFinite(n)) return null;
+    return Math.round(this.inches ? n * 2.54 : n);
+  }
+  bound(key, cm) {
+    const lo = { height: 145, bust: 76, waist: 58, hip: 82 }[key];
+    const hi = { height: 195, bust: 130, waist: 120, hip: 140 }[key];
+    return Math.max(lo, Math.min(hi, cm));
+  }
+  setMeasure(key, raw) {
+    const cm = this.toCm(raw);
+    if (cm === null) return;
+    this.setState({ [key]: this.bound(key, cm) });
+  }
 
   renderVals() {
     const accent = this.props.accent ?? '#a5854f';
     const narrow = this.state.isNarrow;
-    const sil = this.silhouettes[this.state.silhouette];
-    const fig = this.figuresData[this.state.figure];
+    const fab = this.fabricPresets[this.state.fabric ?? 0];
+
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const mo = this.state.monthOffset ?? 0;
+    const canGoBack = mo > 0;
+    const canGoFwd = mo < 5;
+    const viewMonth = new Date(today.getFullYear(), today.getMonth() + mo, 1);
+    const firstDow = (viewMonth.getDay() + 6) % 7;
+    const daysInMonth = new Date(viewMonth.getFullYear(), viewMonth.getMonth() + 1, 0).getDate();
+    const minDate = new Date(today); minDate.setDate(minDate.getDate() + 1);
+
+    const dayCells = [];
+    for (let i = 0; i < firstDow; i++) {
+      dayCells.push({ label: '', disabled: true, onSelect: () => {}, style: { border: 0, background: 'none', padding: '10px 0', cursor: 'default' } });
+    }
+    for (let n = 1; n <= daysInMonth; n++) {
+      const d = new Date(viewMonth.getFullYear(), viewMonth.getMonth(), n);
+      const key = this.dayKey(d);
+      const open = this.isOpen(d) && d >= minDate;
+      const free = open && this.slotTimes(d.getDay()).some(t => !this.taken(key, t));
+      const sel = this.state.pickedDay === key;
+      dayCells.push({
+        label: String(n),
+        disabled: !free,
+        onSelect: () => { if (free) this.setState({ pickedDay: key, pickedDow: d.getDay(), pickedTime: null, pickedPretty: n + '. ' + this.monthNames[d.getMonth()] }); },
+        style: {
+          padding: '11px 0', borderRadius: '10px', fontSize: '15px', textAlign: 'center',
+          border: '1px solid ' + (sel ? '#a5854f' : (free ? 'rgba(46,40,35,.14)' : 'transparent')),
+          background: sel ? '#a5854f' : (free ? '#fffdf9' : 'transparent'),
+          color: sel ? '#fffdf9' : (free ? '#2b2520' : 'rgba(46,40,35,.26)'),
+          fontWeight: sel ? 500 : 400,
+          cursor: free ? 'pointer' : 'default',
+          textDecoration: 'none', transition: 'all .25s ease'
+        }
+      });
+    }
+
+    const pickedPretty = this.state.pickedPretty || '';
+    const slotList = (this.state.pickedDay ? this.slotTimes(this.state.pickedDow) : []).map(t => {
+      const taken = this.taken(this.state.pickedDay, t);
+      const sel = this.state.pickedTime === t;
+      return {
+        label: t, taken,
+        onSelect: () => { if (!taken) this.setState({ pickedTime: t }); },
+        style: {
+          padding: '11px 18px', borderRadius: '999px', fontSize: '14px', letterSpacing: '.06em',
+          border: '1px solid ' + (sel ? '#a5854f' : (taken ? 'rgba(46,40,35,.12)' : 'rgba(46,40,35,.2)')),
+          background: sel ? '#a5854f' : (taken ? 'transparent' : '#fffdf9'),
+          color: sel ? '#fffdf9' : (taken ? 'rgba(46,40,35,.3)' : '#2b2520'),
+          textDecoration: taken ? 'line-through' : 'none',
+          cursor: taken ? 'default' : 'pointer', transition: 'all .25s ease'
+        }
+      };
+    });
+    const open = this.state.lb >= 0;
+    const model = this.models[this.state.lb] || {};
 
     return {
-      navRowStyle: narrow ? { display: 'none' } : { display: 'flex', gap: 'clamp(18px, 2.2vw, 34px)', alignItems: 'center' },
+      fitGridStyle: this.state.isFitNarrow
+        ? { display: 'flex', flexDirection: 'column', gap: 'clamp(14px, 2vw, 22px)' }
+        : { display: 'grid', gridTemplateColumns: 'minmax(230px, 280px) minmax(0, 1.9fr) minmax(200px, 240px)', gap: 'clamp(14px, 1.6vw, 22px)', alignItems: 'stretch' },
+      navRowStyle: narrow ? { display: 'none' } : { display: 'flex', flexWrap: 'nowrap', justifyContent: 'center', gap: 'clamp(4px, .6vw, 10px)', alignItems: 'center', whiteSpace: 'nowrap' },
       burgerStyle: narrow
-        ? { display: 'flex', flexDirection: 'column', gap: '5px', padding: '10px', background: 'rgba(250,246,240,.6)', border: '1px solid rgba(46,40,35,.18)', cursor: 'pointer' }
+        ? { display: 'flex', flexDirection: 'column', gap: '5px', padding: '13px', borderRadius: '14px', background: 'rgba(255,253,249,.8)', border: '1px solid rgba(46,40,35,.16)', boxShadow: '0 4px 14px rgba(90,72,44,.12)', cursor: 'pointer' }
         : { display: 'none' },
       ctaStyle: {
-        display: narrow ? 'none' : 'inline-block', padding: '15px 26px', border: '1px solid ' + accent,
-        color: accent, fontSize: '11px', letterSpacing: '.24em', textTransform: 'uppercase', transition: 'all .35s ease'
+        display: narrow ? 'none' : 'inline-block', padding: '14px 28px', borderRadius: '999px', border: '1px solid ' + accent,
+        color: accent, fontSize: '11px', fontWeight: 500, letterSpacing: '.22em', textTransform: 'uppercase', textAlign: 'center',
+        boxShadow: '0 6px 18px rgba(125,99,53,.14)', transition: 'all .35s ease'
       },
       mobileMenuStyle: {
         display: narrow && this.state.menuOpen ? 'flex' : 'none', flexDirection: 'column',
-        padding: '12px clamp(20px, 4vw, 60px) 24px', background: 'rgba(250,246,240,.96)',
+        padding: '8px clamp(20px, 4vw, 60px) 24px', background: 'rgba(250,246,240,.97)',
         borderTop: '1px solid rgba(46,40,35,.08)', backdropFilter: 'blur(10px)'
       },
       toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
       closeMenu: () => this.setState({ menuOpen: false }),
 
-      collection: [
-        { name: 'Klasična', note: 'Princes kroj · duga šlep', slot: 'haljina 01 · 900×1200' },
-        { name: 'Elegantna', note: 'Riblja kost · čipkani rukavi', slot: 'haljina 02 · 900×1200' },
-        { name: 'Moderna', note: 'Prava linija · mašna na leđima', slot: 'haljina 03 · 900×1200' }
-      ],
-      pillars: [
-        { mark: 'I', title: 'Kroj po meri', body: 'Svaka haljina se pravi posebno za vas i vaš stil.' },
-        { mark: 'II', title: 'Najfiniji materijali', body: 'Italijanska svila, francuska čipka, ručno šiven perlaž.' },
-        { mark: 'III', title: 'Ručni rad', body: 'Svaki detalj dovršen precizno i s pažnjom.' },
-        { mark: 'IV', title: 'Lično iskustvo', body: 'Privatni termini prilagođeni samo vama.' }
-      ],
-      services: [
-        { no: '01', title: 'Haljina po meri', body: 'Od prve skice do završne obrade - haljina kreirana prema vašim merama, uz probni model i tri probe.', meta: 'Od 2.400 € · Rok izrade: 6 meseci' },
-        { no: '02', title: 'Kolekcija ateljea', body: 'Izaberite model iz kolekcije ateljea i prilagodite ga sebi - u vašoj veličini, uz mogućnost izmene dekoltea, rukava ili šlepa.', meta: 'Od 1.450 € · Rok izrade: 12 nedelja' },
-        { no: '03', title: 'Prepravke', body: 'Pažljive i precizne prepravke haljina kupljenih drugde, od korekcije kroja do podizanja šlepa, prilagođavanja korpi i dužine.', meta: 'Od 180 €' },
-        { no: '04', title: 'Velovi i dodaci', body: 'Velovi krojeni prema vašoj visini, pojasevi, boleri i ručno vezeni detalji izrađeni u skladu sa haljinom i čipkom.', meta: 'Od 120 €' }
-      ],
-      steps: [
-        { when: '10 meseci', title: 'Prva poseta', body: 'Probate krojeve, dogovaramo budžet i rokove.' },
-        { when: '8 meseci', title: 'Dizajn i narudžbina', body: 'Skica odobrena, materijali izabrani, avans uplaćen.' },
-        { when: '4 meseca', title: 'Proba modela', body: 'Probni model se namešta na vama i koriguje.' },
-        { when: '2 meseca', title: 'Druga proba', body: 'Haljina u finalnoj tkanini; perlaž se postavlja ručno.' },
-        { when: '3 nedelje', title: 'Završna proba', body: 'Obuća, veo i vežba podizanja šlepa sa kumom.' }
-      ],
-      quotes: [
-        { text: '„Dva puta su prepravljali gornji deo dok nije stao savršeno. Na dan svadbe nisam ni pomislila na haljinu."', who: 'Marija i Luka · Vršac' },
-        { text: '„Nosim veličinu 50 i izašla sam sa haljinom koja mi stoji bolje od svega što sam ikada obukla."', who: 'Jelena · Novi Sad' },
-        { text: '„Tih salon, bez pritiska, i iskren savet o tome šta mi zaista pristaje."', who: 'Ivana · Beograd' }
-      ],
-      faqs: [
-        { q: 'Da li je potrebno zakazati termin?', a: 'Da. U salonu je u jednom trenutku samo jedna nevesta, pa se sve posete zakazuju unaprijed. Termini radnim danima obično su slobodni u roku od nedelju dana.' },
-        { q: 'Koliko traje izrada haljine po meri?', a: 'Šest meseci je komforno, četiri je izvodljivo, a primamo i ekspresne narudžbine do dvanaest nedelja uz doplatu.' },
-        { q: 'Koje veličine radite?', a: 'Krojimo po vašim merama, pa nema ograničenja u veličini. Salonski modeli za probu idu od EU 36 do EU 50, da kroj možete proceniti na sebi.' },
-        { q: 'Da li su prepravke uključene?', a: 'Kod haljina po meri i modela iz kolekcije sve probe i prepravke do završne posete su uključene. Haljine kupljene drugde se obračunavaju posebno.' },
-        { q: 'Šta da ponesem na probu?', a: 'Visinu potpetice koju planirate, donji veš bez šavova i najviše tri gosta. Fotografije stilova koji vam se sviđaju ubrzavaju posao.' }
-      ].map((f, i) => ({
-        ...f,
-        onToggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? -1 : i })),
-        iconStyle: {
-          fontFamily: "'Cormorant Garamond', serif", fontSize: '22px', color: accent, lineHeight: 1,
-          transform: this.state.openFaq === i ? 'rotate(45deg)' : 'none', transition: 'transform .4s cubic-bezier(.2,.7,.2,1)'
-        },
-        panelStyle: {
-          overflow: 'hidden',
-          maxHeight: this.state.openFaq === i ? '280px' : '0px',
-          opacity: this.state.openFaq === i ? 1 : 0,
-          transition: 'max-height .5s cubic-bezier(.2,.7,.2,1), opacity .4s ease'
-        }
-      })),
+      openSeraphine: () => this.setState({ lb: 0 }),
+      openElodie: () => this.setState({ lb: 1 }),
+      openMargaux: () => this.setState({ lb: 2 }),
+      closeLb: () => this.setState({ lb: -1 }),
+      lbName: model.name || '',
+      lbNote: model.note || '',
+      lbStyle: {
+        position: 'fixed', inset: 0, zIndex: 60, display: open ? 'flex' : 'none',
+        flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '22px',
+        padding: 'clamp(20px, 5vw, 60px)', background: 'rgba(24,20,17,.92)',
+        backdropFilter: 'blur(6px)', cursor: 'zoom-out', animation: 'lumFade .4s ease both'
+      },
+      lbImgStyle: {
+        width: 'min(72vw, 46vh)', aspectRatio: '3 / 4', backgroundImage: "url('" + (model.img || '') + "')",
+        backgroundSize: 'cover', backgroundPosition: '50% 40%', boxShadow: '0 30px 70px rgba(0,0,0,.5)'
+      },
 
-      silhouetteTabs: this.silhouettes.map((s, i) => ({
-        label: s.label,
-        onSelect: () => this.setState({ silhouette: i }),
+      height: this.state.height,
+      onHeight: e => this.setMeasure('height', e.target.value),
+      view: this.state.view,
+      spinAttr: this.state.spinning ? '1' : '0',
+      nudge: this.state.nudge,
+      spinIcon: this.state.spinning ? '❚❚' : '▶',
+      onToggleSpin: () => this.setState(s => ({ spinning: !s.spinning })),
+      onSpinLeft: () => this.setState(s => ({ nudge: s.nudge - 1, spinning: false })),
+      onSpinRight: () => this.setState(s => ({ nudge: s.nudge + 1, spinning: false })),
+
+      gownGridStyle: this.state.panelTab === 0
+        ? { display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '8px' }
+        : { display: 'none' },
+      colorGridStyle: this.state.panelTab === 2
+        ? { display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '10px' }
+        : { display: 'none' },
+
+      unitTabs: ['cm', 'in'].map((label, i) => ({
+        label,
+        onSelect: () => this.setState({ unit: i }),
         style: {
-          padding: '13px 24px', cursor: 'pointer', fontSize: '11px', letterSpacing: '.24em', textTransform: 'uppercase',
-          border: '1px solid ' + (this.state.silhouette === i ? '#c8ab77' : 'rgba(245,239,229,.24)'),
-          background: this.state.silhouette === i ? '#c8ab77' : 'transparent',
-          color: this.state.silhouette === i ? '#2e2823' : 'rgba(245,239,229,.78)',
-          transition: 'all .4s ease'
+          padding: '6px 13px', borderRadius: '999px', border: 0, cursor: 'pointer', fontSize: '12px', fontWeight: 500,
+          background: (this.state.unit ?? 0) === i ? 'rgba(245,239,229,.92)' : 'transparent',
+          color: (this.state.unit ?? 0) === i ? '#2e2823' : 'rgba(245,239,229,.7)',
+          transition: 'all .3s ease'
         }
       })),
 
-      figures: this.figuresData.map((f, i) => {
-        const active = this.state.figure === i;
+      shapes: [
+        { label: 'Peščani sat', ratio: [0, 0, 0] },
+        { label: 'Kruška', ratio: [-4, 0, 8] },
+        { label: 'Jabuka', ratio: [4, 8, 0] },
+        { label: 'Pravougaonik', ratio: [0, 6, -2] }
+      ].map((sh, i) => {
+        const active = (this.state.shape ?? 0) === i;
         return {
-          name: f.name, size: f.size, slot: f.slot, note: f.notes[0],
-          onSelect: () => this.setState({ figure: i }),
-          cardStyle: {
-            cursor: 'pointer', background: active ? 'rgba(245,239,229,.08)' : 'rgba(245,239,229,.03)',
-            border: '1px solid ' + (active ? '#c8ab77' : 'rgba(245,239,229,.14)'),
-            transform: active ? 'translateY(-8px)' : 'none',
-            transition: 'transform .55s cubic-bezier(.2,.7,.2,1), background .5s ease, border-color .5s ease'
+          label: sh.label,
+          onSelect: () => this.setState({ shape: i, bust: 90 + sh.ratio[0], waist: 72 + sh.ratio[1], hip: 98 + sh.ratio[2] }),
+          style: {
+            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px', padding: '9px 4px',
+            borderRadius: '12px', cursor: 'pointer',
+            border: '1px solid ' + (active ? '#c8ab77' : 'rgba(245,239,229,.18)'),
+            background: active ? 'rgba(200,171,119,.18)' : 'rgba(20,17,14,.28)',
+            color: active ? '#f5efe5' : 'rgba(245,239,229,.66)',
+            transition: 'all .3s ease'
           },
-          stageStyle: {
-            position: 'relative', aspectRatio: '3 / 4', overflow: 'hidden',
-            background: 'radial-gradient(120% 80% at 50% 10%, rgba(245,239,229,.16), rgba(245,239,229,.04))',
-            display: 'flex', alignItems: 'flex-end', justifyContent: 'center', paddingBottom: '44px'
+          glyphStyle: {
+            display: 'block', width: '18px', height: '30px',
+            background: active ? '#e9dcc7' : 'rgba(245,239,229,.5)',
+            clipPath: [
+              'polygon(50% 0%, 78% 22%, 58% 46%, 82% 74%, 50% 100%, 18% 74%, 42% 46%, 22% 22%)',
+              'polygon(50% 0%, 66% 26%, 60% 48%, 86% 78%, 50% 100%, 14% 78%, 40% 48%, 34% 26%)',
+              'polygon(50% 0%, 82% 24%, 74% 54%, 70% 82%, 50% 100%, 30% 82%, 26% 54%, 18% 24%)',
+              'polygon(32% 0%, 68% 0%, 70% 50%, 70% 100%, 30% 100%, 30% 50%)'
+            ][i]
+          }
+        };
+      }),
+
+      cups: ['A', 'B', 'C', 'D', 'E+'].map((label, i) => {
+        const active = (this.state.cup ?? 2) === i;
+        return {
+          label,
+          onSelect: () => this.setState({ cup: i, bust: 82 + i * 5 }),
+          style: {
+            padding: '9px 2px', borderRadius: '10px', cursor: 'pointer', fontSize: '13px', fontWeight: 500,
+            border: '1px solid ' + (active ? '#c8ab77' : 'rgba(245,239,229,.18)'),
+            background: active ? '#c8ab77' : 'rgba(20,17,14,.28)',
+            color: active ? '#2e2823' : 'rgba(245,239,229,.7)',
+            transition: 'all .3s ease'
+          }
+        };
+      }),
+
+      tones: [
+        { label: 'Ivory', hex: '#faf4ea' },
+        { label: 'Bela', hex: '#ffffff' },
+        { label: 'Šampanj', hex: '#f0e0c8' },
+        { label: 'Blush', hex: '#f6e2df' },
+        { label: 'Nude', hex: '#eddcc9' },
+        { label: 'Mocha', hex: '#dcc7ae' }
+      ].map((t, i) => {
+        const active = (this.state.tone ?? 0) === i;
+        return {
+          label: t.label,
+          onSelect: () => this.setState({ tone: i }),
+          style: {
+            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '7px', padding: '10px 4px',
+            borderRadius: '12px', cursor: 'pointer',
+            border: '1px solid ' + (active ? '#c8ab77' : 'rgba(245,239,229,.18)'),
+            background: active ? 'rgba(200,171,119,.18)' : 'rgba(20,17,14,.28)',
+            color: active ? '#f5efe5' : 'rgba(245,239,229,.7)',
+            transition: 'all .3s ease'
           },
-          formStyle: {
-            position: 'relative',
-            width: (44 * f.scale * (0.55 + 0.45 * sil.width)) + '%',
-            height: '78%',
-            background: 'repeating-linear-gradient(115deg, #ece2d3 0 10px, #ddd0bb 10px 20px)',
-            clipPath: 'polygon(' + (50 - 16 * sil.width) + '% 0%, ' + (50 + 16 * sil.width) + '% 0%, 100% 100%, 0% 100%)',
-            transition: 'width .8s cubic-bezier(.2,.7,.2,1), clip-path .8s ease',
-            animation: active ? 'lumSway 6s ease-in-out infinite' : 'none'
+          swatchStyle: {
+            display: 'block', width: '30px', height: '30px', borderRadius: '50%', background: t.hex,
+            boxShadow: 'inset 0 0 0 1px rgba(46,40,35,.22), 0 3px 9px rgba(0,0,0,.28)'
+          }
+        };
+      }),
+      toneHex: ['#faf4ea', '#ffffff', '#f0e0c8', '#f6e2df', '#eddcc9', '#dcc7ae'][this.state.tone ?? 0],
+
+      applyLabel: this.state.applied ? 'Mere primenjene ✓' : 'Primeni mere',
+      onApply: () => {
+        this.setState({ applied: true, view: 0, spinning: true });
+        clearTimeout(this._applyTimer);
+        this._applyTimer = setTimeout(() => this.setState({ applied: false }), 2200);
+      },
+      detailListStyle: this.state.panelTab === 1 ? { display: 'flex', flexDirection: 'column' } : { display: 'none' },
+      detailRows: [
+        { label: 'Materijal', value: ['Svila i francuska čipka', 'Čipka na tilu', 'Mat krep'][this.state.silhouette] },
+        { label: 'Izrez', value: ['Srce, spušteno rame', 'Duboko V, čipkani rukav', 'Prava linija, bretele'][this.state.silhouette] },
+        { label: 'Šlep', value: ['Dugi, 180 cm', 'Srednji, 90 cm', 'Kratki, 40 cm'][this.state.silhouette] },
+        { label: 'Leđa', value: ['Obloženi dugmići', 'Dublji izrez, dugmići', 'Mašna na struku'][this.state.silhouette] },
+        { label: 'Rok izrade', value: ['6 meseci', '5 meseci', '12 nedelja'][this.state.silhouette] }
+      ],
+
+      panelTabs: ['Haljine', 'Detalji', 'Boja'].map((label, i) => ({
+        label,
+        onSelect: () => this.setState({ panelTab: i }),
+        style: {
+          flex: 1, padding: '10px 8px', borderRadius: '999px', border: 0, cursor: 'pointer',
+          fontSize: '13px', fontWeight: 500, letterSpacing: '.12em',
+          background: this.state.panelTab === i ? 'rgba(245,239,229,.92)' : 'transparent',
+          color: this.state.panelTab === i ? '#2e2823' : 'rgba(245,239,229,.7)',
+          transition: 'all .35s ease'
+        }
+      })),
+
+      views: ['Napred', 'Profil', 'Pozadi'].map((label, i) => ({
+        label,
+        onSelect: () => this.setState({ view: i, spinning: false }),
+        style: {
+          padding: '13px 16px', borderRadius: '14px', cursor: 'pointer', textAlign: 'left',
+          fontSize: '14px', fontWeight: 500, letterSpacing: '.1em',
+          border: '1px solid ' + (this.state.view === i ? '#c8ab77' : 'rgba(245,239,229,.18)'),
+          background: this.state.view === i ? 'rgba(200,171,119,.2)' : 'rgba(20,17,14,.3)',
+          color: this.state.view === i ? '#f5efe5' : 'rgba(245,239,229,.72)',
+          transition: 'all .35s ease'
+        }
+      })),
+
+      silhouetteTabs: this.silhouettes.map((s, i) => {
+        const active = this.state.silhouette === i;
+        return {
+          label: s.label.split(' ')[0],
+          onSelect: () => this.setState({ silhouette: i }),
+          style: {
+            display: 'flex', flexDirection: 'column', gap: '8px', padding: '10px', borderRadius: '14px', cursor: 'pointer',
+            border: '1px solid ' + (active ? '#c8ab77' : 'rgba(245,239,229,.18)'),
+            background: active ? 'rgba(200,171,119,.18)' : 'rgba(20,17,14,.28)',
+            color: active ? '#f5efe5' : 'rgba(245,239,229,.72)',
+            transition: 'all .35s ease'
+          },
+          thumbStyle: {
+            display: 'block', width: '100%', aspectRatio: '3 / 4', borderRadius: '9px',
+            backgroundImage: "url('" + ['assets/gown-klasicna.png', 'assets/gown-elegantna.png', 'assets/gown-moderna.png'][i] + "')",
+            backgroundSize: 'cover', backgroundPosition: '50% 35%',
+            filter: active ? 'none' : 'grayscale(.35) brightness(.85)'
           }
         };
       }),
 
       gownIndex: this.state.silhouette,
-      gownName: ['Klasična · princes kroj', 'Elegantna · riblja kost', 'Moderna · prava linija'][this.state.silhouette],
-      gownPhotoStyle: {
-        flex: 1, minHeight: '260px',
-        backgroundImage: "url('" + ['assets/gown-klasicna.png', 'assets/gown-elegantna.png', 'assets/gown-moderna.png'][this.state.silhouette] + "')",
-        backgroundSize: 'cover', backgroundPosition: '50% 35%', transition: 'opacity .4s ease'
-      },
       bust: this.state.bust, waist: this.state.waist, hip: this.state.hip,
-      bustLabel: this.state.bust + ' cm',
-      waistLabel: this.state.waist + ' cm',
-      hipLabel: this.state.hip + ' cm',
-      onBust: e => this.setState({ bust: +e.target.value }),
-      onWaist: e => this.setState({ waist: +e.target.value }),
-      onHip: e => this.setState({ hip: +e.target.value }),
+      bustLabel: this.fmt(this.state.bust),
+      waistLabel: this.fmt(this.state.waist),
+      hipLabel: this.fmt(this.state.hip),
+      unitLabel: (this.state.unit ?? 0) === 0 ? 'cm' : 'in',
+      onBust: e => this.setMeasure('bust', e.target.value),
+      onWaist: e => this.setMeasure('waist', e.target.value),
+      onHip: e => this.setMeasure('hip', e.target.value),
+      numStep: this.inches ? 0.5 : 1,
+      heightVal: this.out(this.state.height), heightMin: this.out(145), heightMax: this.out(195),
+      bustVal: this.out(this.state.bust), bustMin: this.out(76), bustMax: this.out(130),
+      waistVal: this.out(this.state.waist), waistMin: this.out(58), waistMax: this.out(120),
+      hipVal: this.out(this.state.hip), hipMin: this.out(82), hipMax: this.out(140),
+
+      sewRef: el => { if (el) this.setupSew(el); },
+      sewGridStyle: {
+        maxWidth: '1560px', height: '100%', margin: '0 auto', padding: 'clamp(14px, 3.2vh, 44px) clamp(22px, 4vw, 64px)',
+        display: 'grid', gridTemplateColumns: narrow ? 'minmax(0, 1fr)' : 'minmax(280px, 400px) minmax(0, 1fr)',
+        gridTemplateRows: narrow ? 'auto minmax(0, 1fr)' : 'minmax(0, 1fr)',
+        minHeight: 0,
+        gap: narrow ? '14px' : 'clamp(20px, 3vw, 52px)', alignItems: 'center'
+      },
+      shineGridStyle: {
+        maxWidth: '1560px', margin: '0 auto', padding: 'clamp(52px, 7vw, 104px) clamp(22px, 4vw, 64px)',
+        display: 'grid', gridTemplateColumns: this.state.isFitNarrow ? 'minmax(0, 1fr)' : 'minmax(300px, 440px) minmax(0, 1fr)',
+        gap: 'clamp(26px, 3vw, 52px)'
+      },
+      fabrics: this.fabricPresets.map((f, i) => {
+        const active = (this.state.fabric ?? 0) === i;
+        return {
+          label: f.label, note: f.note,
+          onSelect: () => this.setState({ fabric: i }),
+          style: {
+            display: 'flex', flexDirection: 'column', gap: '7px', padding: '14px 16px', borderRadius: '16px', cursor: 'pointer',
+            textAlign: 'left', border: '1px solid ' + (active ? '#c8ab77' : 'rgba(245,239,229,.16)'),
+            background: active ? 'rgba(200,171,119,.16)' : 'rgba(20,17,14,.3)',
+            color: active ? '#f5efe5' : 'rgba(245,239,229,.74)', transition: 'all .35s ease'
+          },
+          dotStyle: {
+            display: 'block', width: '14px', height: '14px', borderRadius: '50%',
+            background: 'rgb(' + f.base.join(',') + ')', opacity: f.alpha,
+            boxShadow: 'inset 0 0 0 1px rgba(46,40,35,.25)'
+          }
+        };
+      }),
+      dropLabel: fab.drop, weightLabel: fab.weight, sheenLabel: fab.sheenTxt,
+      hintLabel: 'Pomerite pokazivač preko tkanine',
+
+      weekdays: ['pon', 'uto', 'sre', 'čet', 'pet', 'sub', 'ned'],
+      monthLabel: this.monthNames[viewMonth.getMonth()] + ' ' + viewMonth.getFullYear(),
+      prevBtnStyle: {
+        display: 'grid', placeItems: 'center', width: '34px', height: '34px', borderRadius: '50%',
+        border: '1px solid rgba(46,40,35,.2)', background: canGoBack ? '#fffdf9' : 'transparent',
+        color: canGoBack ? '#4a423a' : 'rgba(46,40,35,.28)', fontSize: '18px', lineHeight: 1,
+        cursor: canGoBack ? 'pointer' : 'default', transition: 'all .3s ease'
+      },
+      nextBtnStyle: {
+        display: 'grid', placeItems: 'center', width: '34px', height: '34px', borderRadius: '50%',
+        border: '1px solid rgba(46,40,35,.2)', background: canGoFwd ? '#fffdf9' : 'transparent',
+        color: canGoFwd ? '#4a423a' : 'rgba(46,40,35,.28)', fontSize: '18px', lineHeight: 1,
+        cursor: canGoFwd ? 'pointer' : 'default', transition: 'all .3s ease'
+      },
+      onPrevMonth: () => { if (canGoBack) this.setState({ monthOffset: mo - 1, pickedDay: null, pickedTime: null }); },
+      onNextMonth: () => { if (canGoFwd) this.setState({ monthOffset: mo + 1, pickedDay: null, pickedTime: null }); },
+      days: dayCells,
+      slotsWrapStyle: {
+        display: this.state.pickedDay ? 'flex' : 'none', flexDirection: 'column', gap: '10px',
+        padding: '16px 18px', borderRadius: '16px', background: '#f3ebdf'
+      },
+      slotsTitle: this.state.pickedDay ? 'Slobodno ' + pickedPretty : '',
+      slots: slotList,
+      slotsNote: 'Termin traje 90 minuta. Precrtana vremena su već zauzeta.',
+      pickedLabel: this.state.pickedTime ? 'Izabrali ste ' + pickedPretty + ' u ' + this.state.pickedTime + '.' : 'Izaberite dan, pa vreme.',
+      pickedStyle: {
+        fontSize: '14px', lineHeight: 1.6,
+        color: this.state.pickedTime ? '#7d6335' : '#8a8078',
+        fontWeight: this.state.pickedTime ? 500 : 400
+      },
 
       onSubmit: (e) => { e.preventDefault(); this.setState({ sent: true }); },
-      sentMessage: this.state.sent ? 'Hvala vam — termin potvrđujemo u roku od jednog radnog dana.' : '',
+      sentMessage: this.state.sent
+        ? (this.state.pickedTime
+            ? 'Hvala vam. Termin ' + pickedPretty + ' u ' + this.state.pickedTime + ' je rezervisan, potvrdu šaljemo u roku od jednog radnog dana.'
+            : 'Hvala vam. Javljamo se u roku od jednog radnog dana da dogovorimo termin.')
+        : '',
       sentStyle: {
-        fontSize: '13px', fontWeight: 300, lineHeight: 1.7, color: accent,
+        fontSize: '14px', lineHeight: 1.7, color: accent,
         opacity: this.state.sent ? 1 : 0, transition: 'opacity .5s ease', minHeight: '18px'
       }
     };
